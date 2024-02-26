@@ -20,23 +20,36 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7-lb8i933+9v-o7((p$sda483ek5re-fb$m(2@9h+mv)m8et94'
+SECRET_KEY = 'django-insecure-9!ehmv$xwnn0lz2-fg557e&lb#=xck-$(3y3+2l1@wxip+$9nw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Disables the browseable API provided by Rest Framework
+# Only disable for devlopment and debugging!
+# ENABLE FOR DEPLOYMENT
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.JSONRenderer',
+#     )
+# }
+
+
 # Application definition
 
 INSTALLED_APPS = [
-    "main.apps.MainConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api.apps.ApiConfig', # enables use of django ../api
+    'rest_framework', # enable django rest framework
+    'frontend', # enables the ../frontend django app
 ]
 
 MIDDLEWARE = [
