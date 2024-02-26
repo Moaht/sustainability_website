@@ -7,16 +7,12 @@ export default function SignUp() {
     firstname: "",
     lastname: "",
     email: "",
-    password: "",
   });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("api", {
+    const response = await fetch("api/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(formData),
     });
     const data = await response.json();
@@ -87,20 +83,6 @@ export default function SignUp() {
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            <b>Password</b>
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            name="password"
-            value={formData.password}
             onChange={handleChange}
             required
           />
