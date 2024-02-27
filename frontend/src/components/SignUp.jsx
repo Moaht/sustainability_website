@@ -4,16 +4,20 @@ import "./signup-style.css";
 export default function SignUp() {
   const [formData, setFormData] = useState({
     username: "",
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
   });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("api/", {
+    const response = await fetch("signup/", {
       method: "POST",
-      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: 'username=' + formData['username'] + '&firstName=' + formData['firstName'] + '&lastName=' + formData['lastName'] + '&email=' + formData['email'],
+
     });
     const data = await response.json();
     console.log(data);
@@ -46,29 +50,29 @@ export default function SignUp() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="firstname" className="form-label">
+          <label htmlFor="firstName" className="form-label">
             <b>First Name</b>
           </label>
           <input
             type="text"
             className="form-control"
-            id="firstname"
-            name="firstname"
-            value={formData.firstname}
+            id="firstName"
+            name="firstName"
+            value={formData.firstName}
             onChange={handleChange}
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="lastname" className="form-label">
+          <label htmlFor="lastName" className="form-label">
             <b>Last Name</b>
           </label>
           <input
             type="text"
             className="form-control"
-            id="lastname"
-            name="lastname"
-            value={formData.lastname}
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
             onChange={handleChange}
             required
           />
