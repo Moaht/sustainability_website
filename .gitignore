@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/react,windows,linux,macos,python,django,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,windows,linux,macos,python,django,node
 
+### Webpack ###
+frontend/static/
+
 ### Django ###
 *.log
 *.pot

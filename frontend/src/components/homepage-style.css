@@ -2,6 +2,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url("../images/Home.svg");
   text-align: center;
   display: flex;
   flex-direction: column;

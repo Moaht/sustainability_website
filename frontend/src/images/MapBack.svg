@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="1044px" height="2313px" viewBox="0 0 1044 2313" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M1044 0L1044 0L1044 2313L0 2313L0 0L1044 0Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="Frame 3" clip-path="url(#clip_1)">
+    <path d="M1044 0L1044 0L1044 2313L0 2313L0 0L1044 0Z" id="Frame-3" fill="#FFFFFF" stroke="none" />
+    <path d="M0 0L3714 0L3714 2334L0 2334L0 0Z" id="Rectangle-11" fill="#C3947C" fill-rule="evenodd" stroke="none" />
+    <path d="M0 0L1044 0L1044 910L0 910L0 0Z" id="Background" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M1044 0L1051 0L1051 910L1044 910L1044 0Z" id="Rectangle-6" fill="#82A64E" fill-rule="evenodd" stroke="none" />
+    <path d="M1051 917L1051 925L0 925L0 917L1051 917Z" id="Rectangle-2" fill="#543A2B" fill-rule="evenodd" stroke="none" />
+    <path d="M1073 939L1073 947L-1 947L-1 939L1073 939Z" id="Rectangle-8" fill="#543A2B" fill-rule="evenodd" stroke="none" />
+    <path d="M1066 925L1066 932L0 932L0 925L1066 925Z" id="Rectangle-4" fill="#7D5A47" fill-rule="evenodd" stroke="none" />
+    <path d="M1066 932L1066 939L0 939L0 932L1066 932Z" id="Rectangle-10" fill="#A77961" fill-rule="evenodd" stroke="none" />
+    <path d="M1088 947L1088 954L0 954L0 947L1088 947Z" id="Rectangle-13" fill="#A77961" fill-rule="evenodd" stroke="none" />
+    <path d="M1051 910L1051 917L0 917L0 910L1051 910Z" id="Rectangle-5" fill="#82A64E" fill-rule="evenodd" stroke="none" />
+  </g>
+</svg>

@@ -5,7 +5,7 @@ import './homepage-style.css'
 export default function HomePage() {
   return (
     <div id="content-container">
-      <img src="/favicon.svg" />
+      <img src="../images/favicon.svg" />
       <div id="rectangle_11" className="text-center">
         <br></br>
         <br></br>
