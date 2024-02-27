@@ -144,6 +144,7 @@
     "isobject": "^3.0.1",
     "jest-worker": "^27.5.1",
     "js-base64": "^2.6.4",
+    "js-cookie": "^3.0.5",
     "js-tokens": "^4.0.0",
     "jsbn": "^1.1.0",
     "jsesc": "^2.5.2",

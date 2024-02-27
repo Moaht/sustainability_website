@@ -9,8 +9,6 @@ from rest_framework import routers
 
 router = routers.SimpleRouter()
 
-router.register(r'api', viewset=views.UserListCreate)
-router.register(r'signup', viewset=views.UserListCreate)
+router.register(r'api/signup', viewset=views.UserListCreate)
 urlpatterns = []
 urlpatterns += router.urls
-
