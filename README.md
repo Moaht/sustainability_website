@@ -28,7 +28,7 @@ First we set up a virtual environment for the modules that will be used for the 
 
 Then we activate the virtual environment:
 
- - For _Linux_ we can:
+ - For _Linux_ run:
 ``` source ./venv/bin/activate ```
 
 - And on _Windows_ its: 

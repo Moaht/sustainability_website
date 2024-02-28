@@ -1,28 +1,49 @@
+
+#main {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 #board {
+  width: 100%;
   position: relative;
 }
 
 #map {
-  position: relative;
+  width: 100%;
 }
 
-#outer {
-  position: absolute;
-  width: 100vw;
+#below {
+  width: 100%;
   top: 0;
   left: 0;
 }
 
-.pointer {
+.location {
   position: absolute;
-  width: 5%;
-  height: 10%;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+
+.pointer {
+  width: 20%;
   transition: transform 0.5s;
+  padding-right: 10px;
+}
+
+p {
+  color: #ffffff;
+  font-size: 10px;
+  width: 60%;
+  margin-bottom: 0;
 }
 
 #newman { top: 39%; left: 15%; }
 #into { top: 48%; left: 42%; }
 #streath { top: 57%; left: 77%; }
-#armory { top: 41%; left: 69%; }
+#amory { top: 41%; left: 69%; }
 #harrison { top: 10%; left: 57%; }
 #forum { top: 65%; left: 46%; }

@@ -21,7 +21,7 @@ export default function LogIn() {
   };
 
   return (
-    <div id="content-container">
+    <div id="login-container" className="content-container">
       <h1>
         <b>Log In</b>
         <br></br>
@@ -29,9 +29,6 @@ export default function LogIn() {
       </h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            <b>Username</b>
-          </label>
           <input
             type="text"
             className="form-control"
@@ -39,13 +36,11 @@ export default function LogIn() {
             name="username"
             value={formData.username}
             onChange={handleChange}
+            placeholder="Username"
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            <b>Password</b>
-          </label>
           <input
             type="password"
             className="form-control"
@@ -53,6 +48,7 @@ export default function LogIn() {
             name="password"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Password"
             required
           />
         </div>
