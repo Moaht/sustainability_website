@@ -24,7 +24,9 @@ Your current directory should look something like this:
 ```
 
 First we set up a virtual environment for the modules that will be used for the project:
-``` python3 -m venv venv ```
+``` 
+python3 -m venv venv
+```
 
 Then we activate the virtual environment:
 
@@ -42,7 +44,7 @@ python -m pip install --upgrade pip django djangorestframework
 Next we set up node:
 ```
 cd frontend/ 
-npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+npm i
 npm run dev
 ```
 
