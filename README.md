@@ -28,7 +28,7 @@ First we set up a virtual environment for the modules that will be used for the 
 
 Then we activate the virtual environment:
 
- - For _Linux_ run:
+ - For _Linux_ and _Mac_ run:
 ``` source ./venv/bin/activate ```
 
 - And on _Windows_ its: 
@@ -36,23 +36,19 @@ Then we activate the virtual environment:
 
 Then we upgrade pip and install a few modules:
 ```
-python -m pip install --upgrade pip 
-python -m pip install django djangorestframework
+python -m pip install --upgrade pip django djangorestframework
 ```
 
 Next we set up node:
 ```
 cd frontend/ 
-npm init -y 
-npm i webpack webpack-cli --save-dev 
-npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev npm i react react-dom --save-dev 
+npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
 npm run dev
 ```
 
 Then we set up the database :
 ```
 cd ..
-python manage.py makemigrations 
 python manage.py migrate 
 ```
 
