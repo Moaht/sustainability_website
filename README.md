@@ -40,6 +40,8 @@ Then we upgrade pip and install a few modules:
 ```
 python -m pip install --upgrade pip django djangorestframework
 ```
+> [!IMPORTANT]
+> Before you move on to the next step, make sure your node and npm are updated to the latest version.
 
 Next we set up node:
 ```
