@@ -26,10 +26,12 @@ Your current directory should look something like this:
 First we set up a virtual environment for the modules that will be used for the project:
 ``` python3 -m venv venv ```
 
-Then we activate the virtual environment --
-For Linux we can:
+Then we activate the virtual environment:
+
+ - For _Linux_ we can:
 ``` source ./venv/bin/activate ```
-And on windows its: 
+
+- And on _Windows_ its: 
 ```.\venv\Scripts\activate```
 
 Then we upgrade pip and install a few modules:
