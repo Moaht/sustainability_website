@@ -1,11 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser, UserManager
 
-class User(models.Model):
-    username = models.CharField(max_length=100)
-    firstName = models.CharField(max_length=100)
-    lastName = models.CharField(max_length=100)
-    email = models.EmailField()
-    password = models.CharField(max_length=50)
-    created_at = models.DateTimeField(auto_now_add=True)
+# Currently just ensures that user:username checks are case-insensitive (for registration etc)
+class CustomUserManager(UserManager):
+    def get_by_natural_key(self, username):
+        username_attr = '{}__iexact'.format(self.model.USERNAME_FIELD)
+        return self.get(**{username_attr: username})
+
+class User(AbstractUser):
+    objects = CustomUserManager()
+    email_confirmed = models.BooleanField(default=False)
     def __unicode__(self):
         return self.username

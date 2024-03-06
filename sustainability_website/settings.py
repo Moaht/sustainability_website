@@ -34,12 +34,18 @@ ALLOWED_HOSTS = []
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.FormParser',
-        'rest_framework.parsers.MultiPartParser'
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.JSONParser',
      ),
     
     #'DEFAULT_RENDERER_CLASSES': (
     #    'rest_framework.renderers.JSONRenderer',
     #)
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+    # Enables DRF built-in token authorisation & authentication
+    'rest_framework.authentication.TokenAuthentication',
+],
 }
 
 
@@ -55,6 +61,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig', # enables use of django ../api
     'rest_framework', # enable django rest framework
     'frontend', # enables the ../frontend django app
+    'rest_framework.authtoken', # enables the built-in DRF token authorisation 
 ]
 
 MIDDLEWARE = [
@@ -139,3 +146,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Custom User model for the API app 
+AUTH_USER_MODEL = "api.User"
