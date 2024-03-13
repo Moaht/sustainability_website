@@ -34,11 +34,12 @@
   padding-right: 10px;
 }
 
-p {
-  color: #ffffff;
+.location p {
+  color: white;
   font-size: 10px;
   width: 60%;
   margin-bottom: 0;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #newman { top: 39%; left: 15%; }
@@ -47,3 +48,72 @@ p {
 #amory { top: 41%; left: 69%; }
 #harrison { top: 10%; left: 57%; }
 #forum { top: 65%; left: 46%; }
+#swiot { top: 0.25%; left: 81%; }
+
+#task-board {
+  position: absolute;
+  background-image: url("../images/MapBelow.svg");
+  width: 100vw;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0;
+  background-size: cover; 
+  background-repeat: no-repeat;  
+}
+
+.task {
+  position: relative;
+  background-color: #F8DBAC;
+  width: 90%;
+  height: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.task p {
+  font-size: 18px;
+  width: 60%;
+  margin: 0;
+}
+
+.task img {
+  height: 80%;
+  margin-inline: 10px;
+  border-style: outset;
+  border-width: 3px;
+  border-color: #543A2B;
+  border-radius: 100px;
+  box-shadow: 0 4px #999;
+}
+
+.task img:active {
+  border-color: #543A2B;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+#read, #read:active, #read:hover {
+  margin-inline: 10px;
+  background-color: #F8C822;
+  height: 70%;
+  width: 30%;
+  padding: 0px;
+}
+
+#inside {
+  position: relative;
+  background-color: #F8DBAC;
+  width: 90%;
+  height: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-left: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
