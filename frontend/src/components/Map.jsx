@@ -12,7 +12,7 @@ export default function Map() {
   const enterBuilding = (id) => {
     const pointer = document.getElementById(id);
     const current = document.getElementById(currentBuilding);
-    const buildings = {"into-pointer":"INTO", "newman-pointer":"Newman", "streath-pointer":"Streatham Court" , "amory-pointer":"Amory Building", "harrison-pointer":"Harrison Building", "forum-pointer":"Forum", "swiot-pointer":"SWIoT"};
+    const buildings = {"into-pointer":"INTO", "peter-pointer":"Peter Chalk Centre", "streath-pointer":"Streatham Court" , "amory-pointer":"Amory Building", "harrison-pointer":"Harrison Building", "forum-pointer":"Forum", "swiot-pointer":"SWIoT"};
 
     if (currentBuilding !== id) {
       pointer.src = pointerOn;
@@ -68,12 +68,12 @@ export default function Map() {
     <div id="main">
       <div id="board">
         <img id="map" src={map} />
-        <div id="newman" className="location">
+        <div id="peter" className="location">
           <img
-            id="newman-pointer"
+            id="peter-pointer"
             className="pointer"
             src={pointerOff}
-            onClick={() => enterBuilding("newman-pointer")}
+            onClick={() => enterBuilding("peter-pointer")}
           />
           <p>Peter Chalk Centre</p>
         </div>
