@@ -33,7 +33,7 @@
     <path d="M783.185 488.065L780.832 514.962L757.919 512.958L760.272 486.06L783.185 488.065Z" id="Rectangle-9-Copy-6" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
     <path d="M730 479.353L727.647 506.25L704.734 504.246L707.088 477.348L730 479.353Z" id="Rectangle-9-Copy-7" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
     <path d="M442.5 444.549L468.481 459.549L410.481 560.008L384.5 545.008L442.5 444.549Z" id="Rectangle-14" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
-    <path d="M410.377 500.098L438.193 511.336L414.967 568.821L387.152 557.583L410.377 500.098Z" id="Rectangle-14-Copy" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M410.377 500.098L438.193 511.336L414.967 568.822L387.152 557.583L410.377 500.098Z" id="Rectangle-14-Copy" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
     <path d="M428 537L396 529L381 558L419 574.5L466 584L509 574.5L547 574.5L594 584L634 611L657 633L669 646L689 633L736 656L768 659L788 624" id="Vector" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="10" />
     <path d="M442 548L509 548L509 560L442 560L442 548Z" id="Rectangle-15" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
     <path d="M476.2 451.414L553.982 529.195L534.89 548.287L457.108 470.505L476.2 451.414Z" id="Rectangle-16" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
@@ -92,8 +92,8 @@
     <path d="M716 592L705 517" id="Vector-16" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="5" />
     <path d="M803 487L894 553" id="Vector-17" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="5" />
     <path d="M703 676L736 659" id="Vector-18" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="5" />
-    <path d="M-25 797L-2.37258 774.373L88.8442 865.589L66.2168 888.217L-25 797Z" id="Rectangle-52" fill="#CBEA9D" fill-rule="evenodd" stroke="none" />
-    <path d="M-25 706L-2.37258 683.372L88.8442 774.589L66.2168 797.217L-25 706Z" id="Rectangle-54" fill="#CBEA9D" fill-rule="evenodd" stroke="none" />
+    <path d="M-25 797L-2.37259 774.373L88.8442 865.589L66.2168 888.217L-25 797Z" id="Rectangle-52" fill="#CBEA9D" fill-rule="evenodd" stroke="none" />
+    <path d="M-25 706L-2.37259 683.372L88.8442 774.589L66.2168 797.217L-25 706Z" id="Rectangle-54" fill="#CBEA9D" fill-rule="evenodd" stroke="none" />
     <path d="M-32.5848 607.315L-9.95739 584.688L99.6441 694.289L77.0167 716.917L-32.5848 607.315Z" id="Rectangle-56" fill="#CBEA9D" fill-rule="evenodd" stroke="none" />
     <path d="M55.5 406L43.5 318L53.5 282L43.5 253L22 231.5L22 204.5L32.5 195" id="Vector-21" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="10" />
     <path d="M744.7 877.8L759.7 870.3L759.7 885.3L744.7 877.8Z" id="Triangle-7" fill="#48B33A" fill-rule="evenodd" stroke="none" />
@@ -103,7 +103,14 @@
     <path d="M1 422L66 433" id="Vector-22" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="5" />
     <path d="M438 779L452.464 843.967L465 910" id="Vector-26" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="10" />
     <path d="M236 897C236.002 897 268 889 268 889L286.5 872.5L320.5 849.5" id="Vector-27" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="10" />
-    <path d="M819.5 29L812 14L827 14L819.5 29Z" id="Triangle-8" fill="#48B33A" fill-rule="evenodd" stroke="none" />
+    <path d="M820 81.9998L971.027 47.1324L983.625 101.697L832.597 136.565L820 81.9998Z" id="Rectangle-75" fill="#32682B" fill-rule="evenodd" stroke="none" />
+    <path d="M870.721 105.352L929.183 91.855L935.932 121.086L877.47 134.583L870.721 105.352Z" id="Rectangle-82" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M943 22.9999L994.096 52.4999L979.096 78.4806L928 48.9806L943 22.9999Z" id="Rectangle-76" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M928.53 91.8659L975.295 118.866L960.795 143.981L914.03 116.981L928.53 91.8659Z" id="Rectangle-77" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M969 67.6436L993.249 81.6436L970.249 121.481L946 107.481L969 67.6436Z" id="Rectangle-81" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M870.5 105.268L890.419 116.768L874.419 144.481L854.5 132.981L870.5 105.268Z" id="Rectangle-78" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M827 62.2679L848.651 74.7679L823.151 118.935L801.5 106.435L827 62.2679Z" id="Rectangle-79" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
+    <path d="M828.9 109L867.005 131L853.505 154.383L815.4 132.383L828.9 109Z" id="Rectangle-80" fill="#B2E46A" fill-rule="evenodd" stroke="none" />
     <path d="M991.5 147L984.703 83L979.362 60L958 0" id="Vector-29" fill="none" fill-rule="evenodd" stroke="#808080" stroke-width="10" />
     <path d="M449 384L463 384L463 398L449 398L449 384Z" id="Rectangle-60" fill="#48B33A" fill-rule="evenodd" stroke="none" />
     <path d="M462 417L476 417L476 431L462 431L462 417Z" id="Rectangle-61" fill="#48B33A" fill-rule="evenodd" stroke="none" />
