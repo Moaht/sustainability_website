@@ -1,28 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import favicon from '../images/favicon.svg';
 import "./general-styles.css";
-import favicon from '../images/favicon.svg'
 
-
-export default function HomePage() {
+const HomePage = ({ setPage }) => {
   return (
     <div id="home-container" className="content-container">
-      <img id="logo" src={favicon} />
+      <img id="logo" src={favicon} alt="logo" />
       <div>
         <br></br>
-        <Link to="/login" className="btn btn-primary">
+        <button onClick={() => setPage('login')} className="btn btn-primary">
           Log In
-        </Link>
-        <Link to="/signup" className="btn btn-primary">
+        </button>
+        <button onClick={() => setPage('signup')} className="btn btn-primary">
           Sign Up
-        </Link>
-        <Link to="/map" className="btn btn-primary">
+        </button>
+        <button onClick={() => setPage('map')} className="btn btn-primary">
           [DEV] Map
-        </Link>
-        <Link to="/collection" className="btn btn-primary">
+        </button><button onClick={() => setPage('collection')} className="btn btn-primary">
           [DEV] Collection
-        </Link>
+        </button>
       </div>
     </div>
   );
 }
+
+export default HomePage;
