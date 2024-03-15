@@ -27,7 +27,6 @@ export default function App() {
 
   return (
     <div>
-      
       {renderPage()}
     </div>
   );

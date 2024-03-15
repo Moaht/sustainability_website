@@ -10,7 +10,7 @@ class SignUp extends React.Component {
       event.preventDefault();
       const data = new FormData(event.target);
     
-      fetch('api/signup/', {
+      fetch('api/register/', {
         method: 'POST',
         body: data,
       });
