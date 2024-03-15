@@ -8,7 +8,7 @@ import React, { useState } from "react";
 export default function App() {
   const token = localStorage.getItem('token');
   const isAuthenticated = !!token;
-  const [page, setPage] = useState('home');
+  const [page, setPage] = useState(isAuthenticated ? 'map' : 'home');
 
   const renderPage = () => {
     switch(page) {
@@ -22,14 +22,12 @@ export default function App() {
         return <Map setPage={setPage}/>;
       case 'collection':
         return <Collection setPage={setPage}/>;
-      default:
-        return <HomePage setPage={setPage} />
     }
   }
 
   return (
     <div>
-      /* Navbar here */
+      
       {renderPage()}
     </div>
   );
