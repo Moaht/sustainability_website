@@ -10,7 +10,7 @@ After cloning, change directory into the generated ```sustainability_website``` 
 cd ./sustainability_website 
 ```
 
-Your current directory should look something like this:=
+Your current directory should look something like this:
 ```
 .
 ├── api
