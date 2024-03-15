@@ -14,6 +14,22 @@ export default function Map() {
     const current = document.getElementById(currentBuilding);
     const buildings = {"into-pointer":"INTO", "peter-pointer":"Peter Chalk Centre", "streath-pointer":"Streatham Court" , "amory-pointer":"Amory Building", "harrison-pointer":"Harrison Building", "forum-pointer":"Forum", "swiot-pointer":"SWIoT"};
 
+    /* 
+    need function which sets currentLocation in same style of currentBuilding since gotta compare
+    use function onClick each pointer
+    DONT KNOW IF PSEUDOCODE LOGIC CORRECT
+     
+    if (currentLocation not actual location OR currentLocation !== currentBuilding ) {
+      if (currentLocation stores an actual location already) {
+        POINTER OFF, NO ERROR MESSAGE
+      } else {
+        OUPUT ERROR MESSAGE WITH DISTANCE AND STUFF
+      }
+    } else {
+      PUT MY CONDITIONAL STATEMENTS IN HERE
+    }
+    */
+    
     if (currentBuilding !== id) {
       pointer.src = pointerOn;
       pointer.style.transform = 'scale(1.2)';
