@@ -43,15 +43,15 @@ export default function App() {
             <div id="nav-buttons">
               <button onClick={() => setPage('map')} >Map</button>
               <button onClick={() => setPage('collection')} >Collection</button>
-              <button onClick={() => setPage('')} >Leaderboard</button>
-              <button onClick={() => setPage('')}>Account</button>
+              <button onClick={() => setPage('home')} >Leaderboard</button>
+              <button onClick={() => setPage('home')}>Account</button>
             </div>
           )}
           <img src={expand} onClick={handleToggleNav}/>
         </div>
       )}
       {((page == 'signup') || (page == 'login')) && (
-        <div className="btn btn-primary back" onClick={() => setPage('')}>
+        <div className="btn btn-primary back" onClick={() => setPage('home')}>
             <img src={back}/>
             <p>Back</p>
         </div>
