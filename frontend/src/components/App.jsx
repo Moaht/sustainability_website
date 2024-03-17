@@ -4,11 +4,20 @@ import LogIn from "./LogIn";
 import Map from "./Map";
 import Collection from "./Collection";
 import React, { useState } from "react";
+import "./navbar-style.css";
+import expand from '../images/Expand.svg'
+import back from '../images/Back.svg'
 
 export default function App() {
   const token = localStorage.getItem('token');
   const isAuthenticated = !!token;
   const [page, setPage] = useState(isAuthenticated ? 'map' : 'home');
+  const [toggleNav, setToggleNav] = useState(true);
+
+  const handleToggleNav = () => {
+    setToggleNav(prevToggleNav => !prevToggleNav);
+    document.getElementById("navbar").style.width = (toggleNav ? "98%" : "12%")
+  }
 
   const renderPage = () => {
     switch(page) {
@@ -28,6 +37,25 @@ export default function App() {
   return (
     <div>
       {renderPage()}
+      {((page == 'collection') || (page == 'map')) && (
+        <div id='navbar'>
+          {!toggleNav && (
+            <div id="nav-buttons">
+              <button onClick={() => setPage('map')} >Map</button>
+              <button onClick={() => setPage('collection')} >Collection</button>
+              <button onClick={() => setPage('')} >Leaderboard</button>
+              <button onClick={() => setPage('')}>Account</button>
+            </div>
+          )}
+          <img src={expand} onClick={handleToggleNav}/>
+        </div>
+      )}
+      {((page == 'signup') || (page == 'login')) && (
+        <div className="btn btn-primary back" onClick={() => setPage('')}>
+            <img src={back}/>
+            <p>Back</p>
+        </div>
+      )}
     </div>
   );
 }

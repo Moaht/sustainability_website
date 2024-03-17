@@ -8,12 +8,73 @@ import attach from '../images/Attach.svg'
 
 export default function Map() {
   const [currentBuilding, setCurrentBuilding] = useState('');
+  //const [currentLocation, setcurrentLocation] = useState('');
 
   const enterBuilding = (id) => {
     const pointer = document.getElementById(id);
     const current = document.getElementById(currentBuilding);
     const buildings = {"into-pointer":"INTO", "peter-pointer":"Peter Chalk Centre", "streath-pointer":"Streatham Court" , "amory-pointer":"Amory Building", "harrison-pointer":"Harrison Building", "forum-pointer":"Forum", "swiot-pointer":"SWIoT"};
 
+    /* 
+    need function which sets currentLocation in same style of currentBuilding since gotta compare
+    use function onClick each pointer
+    DONT KNOW IF PSEUDOCODE LOGIC CORRECT
+     
+    if (currentLocation not actual location OR currentLocation !== currentBuilding ) {
+      if (currentLocation stores an actual location already) {
+        POINTER OFF, NO ERROR MESSAGE
+      } else {
+        OUPUT ERROR MESSAGE WITH DISTANCE AND STUFF
+      }
+    } else {
+      PUT MY CONDITIONAL STATEMENTS IN HERE
+    }
+    */
+
+      if (currentBuilding !== id) {
+        pointer.src = pointerOn;
+        pointer.style.transform = 'scale(1.2)';
+        if (currentBuilding) {
+          current.src = pointerOff;
+          current.style.transform = 'scale(1)';
+        }
+        document.getElementById("inside-words").innerHTML = "Current Building: "+buildings[id];
+        document.getElementById("all-tasks").innerHTML = `
+          <div class="task" id="task1">
+            <p>Task 1: Read a text and answer a question</p>
+            <button type="button" class="btn btn-primary" id="read">
+              Read
+            </button>
+          </div>
+          <div class="task" id="task2">
+            <p>Task 2: Temp attachment task placeholder</p>
+            <img class="attach" />
+            <img class="tick" />
+          </div>
+          <div class="task" id="task3">
+            <p>Task 3: Temp attachment task placeholder</p>
+            <img class="attach" />
+            <img class="tick" />
+          </div>
+        `;
+        const attachElements = document.getElementsByClassName("attach");
+        const tickElements = document.getElementsByClassName("tick");
+        for (let i = 0; i < attachElements.length; i++) {
+          attachElements[i].src = attach;
+        }
+    
+        for (let i = 0; i < tickElements.length; i++) {
+          tickElements[i].src = tick;
+        }
+        setCurrentBuilding(id);
+      } else {
+        pointer.src = pointerOff;
+        pointer.style.transform = 'scale(1)';
+        document.getElementById("inside-words").innerHTML = "Enter a building to view its tasks";
+        document.getElementById("all-tasks").innerHTML = "";
+        setCurrentBuilding('');
+      }
+      console.log(currentBuilding);
     /* 
     need function which sets currentLocation in same style of currentBuilding since gotta compare
     use function onClick each pointer
