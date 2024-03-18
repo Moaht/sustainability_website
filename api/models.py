@@ -17,7 +17,7 @@ class Collection(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='collections')
     monster = models.ForeignKey('Monster', on_delete=models.CASCADE, related_name='collections')
     def __str__(self):
-        return self.name
+        return 'UserID:' + str(self.user.id) + ' MonsterID:' + str(self.monster.type.id)
     
 class Monster(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='monsters')
@@ -25,7 +25,7 @@ class Monster(models.Model):
     obtained = models.DateTimeField(auto_now_add=True)
     # Add stats here at some point.... maybe
     def __str__(self):
-        return self.name
+        return self.type.name
 
 class MonsterType (models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, unique=True)
@@ -83,4 +83,4 @@ class TaskVerification(models.Model):
     date_verified = models.DateTimeField(null=True, blank=True)
     verified = models.BooleanField(default=False)
     def __str__(self):
-        return self.name
+        return 'User:' + str(self.user.id) + ' Task:' + self.task.name + ' Verified:' + self.verified
