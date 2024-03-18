@@ -6,7 +6,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div class="content-container">
+    <div id="leaderboard-container" class="content-container">
       <h1>
         <br></br>
         <br></br>

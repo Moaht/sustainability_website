@@ -19,6 +19,7 @@ body, html {
   background-image: url("../images/Account.svg");
   display: flex;
 }
+#leaderboard-container { background-image: url("../images/Leaderboard.svg"); }
 
 .content-container {
   text-align: center;
@@ -125,6 +126,9 @@ input {
 #account-page button {
   height: 10%;
   width: 70%;
+  font-size: 1.2rem;
+  padding: 6px;
+  margin: 8px 0;
 }
 
 #logout-button { background-color:#1B88CC; }
@@ -140,7 +144,7 @@ input {
 #leaderboard {
   background-color: #CBEA9D;
   width: 90%;
-  height: 73%;
+  height: 67%;
   margin: 0 auto;
   margin-top: 20px;
   border: 5px solid #e9ffc7;

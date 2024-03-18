@@ -49,9 +49,6 @@ export default function SignUp({ setPage }) {
       <form onSubmit={handleSubmit}>
       {!!error ? <div className="alert alert-danger">Error! {error}</div> : <></>}
         <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            <b>Username</b>
-          </label>
           <input
             type="text"
             className="form-control"
@@ -64,9 +61,6 @@ export default function SignUp({ setPage }) {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="first_name" className="form-label">
-            <b>First Name</b>
-          </label>
           <input
             type="text"
             className="form-control"
@@ -79,9 +73,6 @@ export default function SignUp({ setPage }) {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="last_name" className="form-label">
-            <b>Last Name</b>
-          </label>
           <input
             type="text"
             className="form-control"
@@ -94,9 +85,6 @@ export default function SignUp({ setPage }) {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            <b>Email</b>
-          </label>
           <input
             type="email"
             className="form-control"
@@ -109,9 +97,6 @@ export default function SignUp({ setPage }) {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            <b>Password</b>
-          </label>
           <input
             type="password"
             className="form-control"
