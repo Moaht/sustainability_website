@@ -8,37 +8,44 @@ import attach from '../images/Attach.svg'
 
 export default function Map() {
   const [currentBuilding, setCurrentBuilding] = useState('');
-  //const [currentLocation, setcurrentLocation] = useState('');
+
+  function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * (Math.PI / 180);
+    const dLon = (lon2 - lon1) * (Math.PI / 180);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * (Math.PI / 180)) *
+        Math.cos(lat2 * (Math.PI / 180)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c * 1000;
+    return distance;
+  }
 
   const enterBuilding = (id) => {
     const pointer = document.getElementById(id);
     const current = document.getElementById(currentBuilding);
-    const buildings = {"into-pointer":"INTO", "peter-pointer":"Peter Chalk Centre", "streath-pointer":"Streatham Court" , "amory-pointer":"Amory Building", "harrison-pointer":"Harrison Building", "forum-pointer":"Forum", "swiot-pointer":"SWIoT"};
+    const buildings = {
+      "into-pointer": { name: "INTO", latitude: 50.7363279283402, longitude: -3.5336984457699394 }, //My location to debug, change when finished
+      "peter-pointer": { name: "Peter Chalk Centre", latitude: 50.736325387118086, longitude: -3.535975245769926 },
+      "streath-pointer": { name: "Streatham Court", latitude: 50.73589298893594, longitude: -3.53092028994958 },
+      "amory-pointer": { name: "Amory Building", latitude: 50.736672146278565, longitude: -3.531684389949515 },
+      "harrison-pointer": { name: "Harrison Building", latitude: 50.7378497367553, longitude: -3.5326732769422953 },
+      "forum-pointer": { name: "Forum", latitude: 50.7353738201005, longitude: -3.5337217034418655 },
+      "swiot-pointer": { name: "SWIoT", latitude: 50.73816689014049, longitude: -3.530605989949407 }
+    };
 
-    /* 
-    need function which sets currentLocation in same style of currentBuilding since gotta compare
-    use function onClick each pointer
-    DONT KNOW IF PSEUDOCODE LOGIC CORRECT
-     
-    if (currentLocation not actual location OR currentLocation !== currentBuilding ) {
-      if (currentLocation stores an actual location already) {
-        POINTER OFF, NO ERROR MESSAGE
-      } else {
-        OUPUT ERROR MESSAGE WITH DISTANCE AND STUFF
-      }
-    } else {
-      PUT MY CONDITIONAL STATEMENTS IN HERE
-    }
-    */
-
-      if (currentBuilding !== id) {
-        pointer.src = pointerOn;
-        pointer.style.transform = 'scale(1.2)';
-        if (currentBuilding) {
-          current.src = pointerOff;
-          current.style.transform = 'scale(1)';
-        }
-        document.getElementById("inside-words").innerHTML = "Current Building: "+buildings[id];
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+        const building = buildings[id];
+        const distance = calculateDistance(userLat, userLon, building.latitude, building.longitude);
+        
+        if (distance <= 30) {
+          document.getElementById("inside-words").innerHTML = "Current Building: " + building.name;
         document.getElementById("all-tasks").innerHTML = `
           <div class="task" id="task1">
             <p>Task 1: Read a text and answer a question</p>
@@ -67,64 +74,20 @@ export default function Map() {
           tickElements[i].src = tick;
         }
         setCurrentBuilding(id);
-      } else {
-        pointer.src = pointerOff;
-        pointer.style.transform = 'scale(1)';
-        document.getElementById("inside-words").innerHTML = "Enter a building to view its tasks";
-        document.getElementById("all-tasks").innerHTML = "";
-        setCurrentBuilding('');
-      }
-      console.log(currentBuilding);
-    /* 
-    need function which sets currentLocation in same style of currentBuilding since gotta compare
-    use function onClick each pointer
-    DONT KNOW IF PSEUDOCODE LOGIC CORRECT
-     
-    if (currentLocation not actual location OR currentLocation !== currentBuilding ) {
-      if (currentLocation stores an actual location already) {
-        POINTER OFF, NO ERROR MESSAGE
-      } else {
-        OUPUT ERROR MESSAGE WITH DISTANCE AND STUFF
-      }
+        } else {
+          document.getElementById("inside-words").innerHTML = `You are ${Math.round(distance)} meters away from ${building.name}. Move closer.`;
+          document.getElementById("all-tasks").innerHTML = "";
+        }
+      });
     } else {
-      PUT MY CONDITIONAL STATEMENTS IN HERE
+      console.error("Geolocation is not supported by this browser.");
     }
-    */
-    
     if (currentBuilding !== id) {
       pointer.src = pointerOn;
       pointer.style.transform = 'scale(1.2)';
       if (currentBuilding) {
         current.src = pointerOff;
         current.style.transform = 'scale(1)';
-      }
-      document.getElementById("inside-words").innerHTML = "Current Building: "+buildings[id];
-      document.getElementById("all-tasks").innerHTML = `
-        <div class="task" id="task1">
-          <p>Task 1: Read a text and answer a question</p>
-          <button type="button" class="btn btn-primary" id="read">
-            Read
-          </button>
-        </div>
-        <div class="task" id="task2">
-          <p>Task 2: Temp attachment task placeholder</p>
-          <img class="attach" />
-          <img class="tick" />
-        </div>
-        <div class="task" id="task3">
-          <p>Task 3: Temp attachment task placeholder</p>
-          <img class="attach" />
-          <img class="tick" />
-        </div>
-      `;
-      const attachElements = document.getElementsByClassName("attach");
-      const tickElements = document.getElementsByClassName("tick");
-      for (let i = 0; i < attachElements.length; i++) {
-        attachElements[i].src = attach;
-      }
-  
-      for (let i = 0; i < tickElements.length; i++) {
-        tickElements[i].src = tick;
       }
       setCurrentBuilding(id);
     } else {
@@ -134,7 +97,6 @@ export default function Map() {
       document.getElementById("all-tasks").innerHTML = "";
       setCurrentBuilding('');
     }
-    console.log(currentBuilding);
   };
 
   useEffect(() => {
@@ -210,12 +172,12 @@ export default function Map() {
         </div>
       </div>
       <div id="task-board">
-          <br></br>
-          <div id="inside">
-            <p id="inside-words">Enter a building to view its tasks</p>
-          </div>
-          <div id="all-tasks">
-          </div>
+        <br></br>
+        <div id="inside">
+          <p id="inside-words">Enter a building to view its tasks</p>
+        </div>
+        <div id="all-tasks">
+        </div>
       </div>
     </div>
   );
