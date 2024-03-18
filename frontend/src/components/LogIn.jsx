@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const LogIn = ({ setPage }) => {
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -14,12 +14,15 @@ const LogIn = ({ setPage }) => {
       body: JSON.stringify(formData),
     });
     if (response.ok) {
-      const data = await response.json();
-      localStorage.setItem('token', data.token);
+      const responseData = await response.json();
+      localStorage.setItem('token', responseData.token);
       setPage('map');
     } else {
-      const data = await response.json();
-      setError(data.error);
+      const responseData = await response.json();
+      Object.values(responseData).forEach((value) => {
+        setError(value[0]);
+      } );
+
     }
   };
 
@@ -35,7 +38,7 @@ const LogIn = ({ setPage }) => {
         <br></br>
       </h1>
       <form onSubmit={handleSubmit}>
-        {error && <p className="error-message">{error}</p>}
+      {!!error ? <div className="alert alert-danger">Error! {error}</div> : <></>}
         <div className="mb-3">
           <input
             type="text"

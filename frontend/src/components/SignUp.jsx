@@ -8,7 +8,7 @@ export default function SignUp({ setPage }) {
     email: "",
     password: "",
   });
-  const [error, setError] = useState(""); // Add error state
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -94,7 +94,7 @@ export default function SignUp({ setPage }) {
             <b>Email</b>
           </label>
           <input
-            type="text"
+            type="email"
             className="form-control"
             id="email"
             name="email"
