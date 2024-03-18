@@ -149,3 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom User model for the API app 
 AUTH_USER_MODEL = "api.User"
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.18']
