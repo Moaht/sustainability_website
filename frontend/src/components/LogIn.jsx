@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 
 const LogIn = ({ setPage }) => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -29,6 +29,10 @@ const LogIn = ({ setPage }) => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  useEffect(() => {
+    document.title = 'Login';
+  }, []);
 
   return (
     <div id="login-container" className="content-container">

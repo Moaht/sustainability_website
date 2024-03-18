@@ -1,8 +1,12 @@
-import React from "react";
 import favicon from '../images/favicon.svg';
 import "./general-styles.css";
+import React, { useEffect } from 'react';
 
 const HomePage = ({ setPage }) => {
+  useEffect(() => {
+    document.title = 'Home';
+  }, []);
+
   return (
     <div id="home-container" className="content-container">
       <img id="logo" src={favicon} alt="logo" />
@@ -16,8 +20,15 @@ const HomePage = ({ setPage }) => {
         </button>
         <button onClick={() => setPage('map')} className="btn btn-primary">
           [DEV] Map
-        </button><button onClick={() => setPage('collection')} className="btn btn-primary">
+        </button>
+        <button onClick={() => setPage('collection')} className="btn btn-primary">
           [DEV] Collection
+        </button>
+        <button onClick={() => setPage('account')} className="btn btn-primary">
+          [DEV] Account
+        </button>
+        <button onClick={() => setPage('leaderboard')} className="btn btn-primary">
+          [DEV] Leaderboard
         </button>
       </div>
     </div>

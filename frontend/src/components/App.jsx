@@ -3,6 +3,8 @@ import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 import Map from "./Map";
 import Collection from "./Collection";
+import Account from "./Account";
+import Leaderboard from "./Leaderboard";
 import React, { useState } from "react";
 import "./navbar-style.css";
 import expand from '../images/Expand.svg'
@@ -31,20 +33,24 @@ export default function App() {
         return <Map setPage={setPage}/>;
       case 'collection':
         return <Collection setPage={setPage}/>;
+      case 'account':
+        return <Account setPage={setPage}/>;
+      case 'leaderboard':
+        return <Leaderboard setPage={setPage}/>;
     }
   }
 
   return (
     <div>
       {renderPage()}
-      {((page == 'collection') || (page == 'map')) && (
+      {((page == 'collection') || (page == 'map') || (page == 'account') || (page == 'leaderboard')) && (
         <div id='navbar'>
           {!toggleNav && (
             <div id="nav-buttons">
               <button onClick={() => setPage('map')} >Map</button>
               <button onClick={() => setPage('collection')} >Collection</button>
-              <button onClick={() => setPage('home')} >Leaderboard</button>
-              <button onClick={() => setPage('home')}>Account</button>
+              <button onClick={() => setPage('leaderboard')} >Leaderboard</button>
+              <button onClick={() => setPage('account')}>Account</button>
             </div>
           )}
           <img src={expand} onClick={handleToggleNav}/>

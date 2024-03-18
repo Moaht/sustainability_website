@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 
 export default function SignUp({ setPage }) {
   const [formData, setFormData] = useState({
@@ -34,6 +34,10 @@ export default function SignUp({ setPage }) {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  useEffect(() => {
+    document.title = 'Signup';
+  }, []);
 
   return (
     <div id="signup-container" className="content-container">
@@ -119,7 +123,10 @@ export default function SignUp({ setPage }) {
             required
           />
         </div>
-        <br></br>
+        <div id="tac">
+            <input id="checkbox" type="checkbox" required />
+            <label for="checkbox"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+        </div>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

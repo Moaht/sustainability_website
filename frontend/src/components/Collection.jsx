@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import "./collection-style.css";
 import blob from '../images/Monsters/Blob.svg'
 import sockub from '../images/Monsters/Sockub.svg'
@@ -32,6 +32,7 @@ export default function Collection() {
           
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Sockub</h1>
             </div>
             <div class="card-header">
@@ -41,6 +42,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Blob</h1>
             </div>
             <div class="card-header">
@@ -50,6 +52,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Chickpick</h1>
             </div>
             <div class="card-header">
@@ -59,6 +62,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Bonepos</h1>
             </div>
             <div class="card-header">
@@ -68,6 +72,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Sparret</h1>
             </div>
             <div class="card-header">
@@ -77,6 +82,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Veneam</h1>
             </div>
             <div class="card-header">
@@ -86,6 +92,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Gunth</h1>
             </div>
             <div class="card-header">
@@ -95,6 +102,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Torrentoise</h1>
             </div>
             <div class="card-header">
@@ -104,6 +112,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Vorp</h1>
             </div>
             <div class="card-header">
@@ -113,6 +122,7 @@ export default function Collection() {
 
           <div class="card-wrap">
             <div class="card-content">
+              <p class="card-level">1</p>
               <h1 class="card-title">Loom</h1>
             </div>
             <div class="card-header">
