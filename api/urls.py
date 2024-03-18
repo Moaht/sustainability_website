@@ -24,5 +24,5 @@ urlpatterns = [
 
 
 router = routers.SimpleRouter()
-router.register(r'api/register', viewset=views.UserListCreate)
+router.register(r'api/signup', viewset=views.UserListCreate)
 urlpatterns += router.urls

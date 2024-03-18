@@ -25,8 +25,18 @@ class UserSerializer(serializers.ModelSerializer):
         """
         Checks if the password entered by the user fulfils certain criteria
         """
+        # Make sure password is not too short or too long
         if len(value) < 6:
             raise ValidationError('The password entered is too short.')
+        if len(value) > 50:
+            raise ValidationError('The password entered is too long.')
+        
+        # Make sure password contains at least one letter and one number
+        if not any(char.isdigit() for char in value):
+            raise ValidationError('Password must contain at least one number.')
+        if not any(char.isalpha() for char in value):
+            raise ValidationError('Password must contain at least one letter.')
+            
         return value
     
     # @staticmethod
