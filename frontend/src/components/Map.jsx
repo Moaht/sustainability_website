@@ -4,10 +4,51 @@ import pointerOn from '../images/Pointer_ON.svg'
 import pointerOff from '../images/Pointer_OFF.svg'
 import map from '../images/Map.svg'
 import tick from '../images/Tick.svg'
+import monster from '../images/Monster.svg'
 import attach from '../images/Attach.svg'
+import blob from '../images/Monsters/Blob.svg'
+import sockub from '../images/Monsters/Sockub.svg'
+import chickpick from '../images/Monsters/Chickpick.svg'
+import loom from '../images/Monsters/Loom.svg'
+import gunth from '../images/Monsters/Gunth.svg'
+import vorp from '../images/Monsters/Vorp.svg'
+import bonepos from '../images/Monsters/Bonepos.svg'
+import torrentoise from '../images/Monsters/Torrentoise.svg'
+import veneam from '../images/Monsters/Veneam.svg'
+import sparret from '../images/Monsters/Sparret.svg'
 
 export default function Map() {
   const [currentBuilding, setCurrentBuilding] = useState('');
+  const [showOverlay1, setShowOverlay1] = useState(false);
+  const [showOverlay2, setShowOverlay2] = useState(false);
+  const [showOverlay3, setShowOverlay3] = useState(false);
+  const [monster1, setMonster1] = useState('');
+  const [monster2, setMonster2] = useState('');
+  const [monster3, setMonster3] = useState('');
+  const [monster4, setMonster4] = useState('');
+  const [monster5, setMonster5] = useState('');
+  const [monster6, setMonster6] = useState('');
+
+  const handleClick1 = () => {
+    setShowOverlay1(true);
+    setTimeout(() => {
+      setShowOverlay1(false);
+    }, 2000);
+  };
+
+  const handleClick2 = () => {
+    setShowOverlay2(true);
+    setTimeout(() => {
+      setShowOverlay2(false);
+    }, 2000);
+  };
+
+  const handleClick3 = () => {
+    setShowOverlay3(true);
+    setTimeout(() => {
+      setShowOverlay3(false);
+    }, 2000);
+  };
 
   function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
@@ -36,72 +77,71 @@ export default function Map() {
       "forum-pointer": { name: "Forum", latitude: 50.7353738201005, longitude: -3.5337217034418655 },
       "swiot-pointer": { name: "SWIoT", latitude: 50.73816689014049, longitude: -3.530605989949407 }
     };
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const userLat = position.coords.latitude;
-        const userLon = position.coords.longitude;
-        const building = buildings[id];
-        const distance = calculateDistance(userLat, userLon, building.latitude, building.longitude);
-        
-        if (distance <= 30) {
-          document.getElementById("inside-words").innerHTML = "Current Building: " + building.name;
-        document.getElementById("all-tasks").innerHTML = `
-          <div class="task" id="task1">
-            <p>Task 1: Read a text and answer a question</p>
-            <button type="button" class="btn btn-primary" id="read">
-              Read
-            </button>
-          </div>
-          <div class="task" id="task2">
-            <p>Task 2: Temp attachment task placeholder</p>
-            <img class="attach" />
-            <img class="tick" />
-          </div>
-          <div class="task" id="task3">
-            <p>Task 3: Temp attachment task placeholder</p>
-            <img class="attach" />
-            <img class="tick" />
-          </div>
-        `;
-        const attachElements = document.getElementsByClassName("attach");
-        const tickElements = document.getElementsByClassName("tick");
-        for (let i = 0; i < attachElements.length; i++) {
-          attachElements[i].src = attach;
-        }
-    
-        for (let i = 0; i < tickElements.length; i++) {
-          tickElements[i].src = tick;
-        }
-        setCurrentBuilding(id);
-        } else {
-          document.getElementById("inside-words").innerHTML = `You are ${Math.round(distance)} meters away from ${building.name}. Move closer.`;
-          document.getElementById("all-tasks").innerHTML = "";
-        }
-      });
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-    if (currentBuilding !== id) {
-      pointer.src = pointerOn;
-      pointer.style.transform = 'scale(1.2)';
-      if (currentBuilding) {
-        current.src = pointerOff;
-        current.style.transform = 'scale(1)';
-      }
-      setCurrentBuilding(id);
-    } else {
+    // Turning off pointer can be done anywhere
+    if (currentBuilding == id) {
       pointer.src = pointerOff;
       pointer.style.transform = 'scale(1)';
       document.getElementById("inside-words").innerHTML = "Enter a building to view its tasks";
-      document.getElementById("all-tasks").innerHTML = "";
       setCurrentBuilding('');
+    } else {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const userLat = position.coords.latitude;
+          const userLon = position.coords.longitude;
+          const building = buildings[id];
+          const distance = calculateDistance(userLat, userLon, building.latitude, building.longitude);
+          if (currentBuilding) {
+            current.src = pointerOff;
+            current.style.transform = 'scale(1)';
+          }
+          if (distance <= 30) {
+            setCurrentBuilding(id);
+            document.getElementById("inside-words").innerHTML = "Current Building: " + building.name;
+            // Give monster images to overlays
+            setMonster1(veneam);
+            setMonster2(bonepos);
+            setMonster3(torrentoise);
+            setMonster4(vorp);
+            setMonster5(blob);
+            setMonster6(sockub);
+            // Scale pointer and switch image since entered building
+            pointer.src = pointerOn;
+            pointer.style.transform = 'scale(1.2)';
+          } else {
+            document.getElementById("inside-words").innerHTML = `You are ${Math.round(distance)} meters away from ${building.name}. Move closer.`;
+            setCurrentBuilding('');
+          }
+        });
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
     }
   };
 
   useEffect(() => {
     document.title = 'Map';
   }, []);
+
+  useEffect(() => {
+    if (showOverlay1) {
+      document.getElementById("monster1-1").src = monster1;
+      document.getElementById("monster1-2").src = monster2;
+    }
+  }, [showOverlay1]);
+
+  useEffect(() => {
+    if (showOverlay2) {
+      document.getElementById("monster2-1").src = monster3;
+      document.getElementById("monster2-2").src = monster4;
+    }
+  }, [showOverlay2]);
+
+  useEffect(() => {
+    if (showOverlay3) {
+      document.getElementById("monster3-1").src = monster5;
+      document.getElementById("monster3-2").src = monster6;
+    }
+  }, [showOverlay3]);
   
   return (
     <div id="main">
@@ -176,8 +216,49 @@ export default function Map() {
         <div id="inside">
           <p id="inside-words">Enter a building to view its tasks</p>
         </div>
-        <div id="all-tasks">
-        </div>
+        {currentBuilding && (
+          <div id="all-tasks">
+            <div className="task" id="task1">
+              {showOverlay1 && (
+                <div className="overlay">
+                  <img id="monster1-1"/>
+                  <img id="monster1-2"/>
+                </div>
+              )}
+              <p>Task 1: Read a text and answer a question</p>
+              <img className="monster" src={monster} onClick={handleClick1}/>
+              <button type="button" className="btn btn-primary" id="read">
+                Read
+              </button>
+            </div>
+
+            <div className="task" id="task2">
+              {showOverlay2 && (
+                <div className="overlay">
+                  <img id="monster2-1"/>
+                  <img id="monster2-2"/>
+                </div>
+              )}
+              <p>Task 2: Temp attachment task placeholder</p>
+              <img className="monster" src={monster} onClick={handleClick2}/>
+              <img className="attach" src={attach} />
+              <img className="tick" src={tick} />
+            </div>
+
+            <div className="task" id="task3">
+              {showOverlay3 && (
+                <div className="overlay">
+                  <img id="monster3-1"/>
+                  <img id="monster3-2"/>
+                </div>
+              )}
+              <p>Task 3: Temp attachment task placeholder</p>
+              <img className="monster" src={monster} onClick={handleClick3}/>
+              <img className="attach" src={attach} />
+              <img className="tick" src={tick} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
