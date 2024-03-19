@@ -6,10 +6,7 @@ export default function HomePage({ setPage }) {
   }, []);
   const [error, setError] = useState("");
 
-  
   const logOut = async () => {
-    console.log(localStorage.getItem('token'));
-
     const response = await fetch("api/logout/", {
       method: "DELETE",
       headers: {

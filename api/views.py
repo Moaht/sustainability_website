@@ -72,7 +72,7 @@ class HelloView(APIView):
 
 class CollectionView(APIView):
     """
-    Gets a collection of monsters by user id
+    Gets a collection of monsters by token -> user id
     """
     permission_classes = IsAuthenticated,
 
