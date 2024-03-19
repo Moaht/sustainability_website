@@ -32,6 +32,8 @@ export default function HomePage({ setPage }) {
   return (
     <div id="account-container" class="content-container">
       <h1>
+        <br></br>
+        <br></br>
         <b>Account</b>
       </h1>
       <div id="account-page">

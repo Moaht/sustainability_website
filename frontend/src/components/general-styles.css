@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    background-color: #7D5A47;
 }
 
 #home-container { background-image: url("../images/Home.svg"); }
@@ -15,10 +15,7 @@ body, html {
   display: flex;
 }
 #collection-container { background-image: url("../images/Collection.svg"); }
-#account-container { 
-  background-image: url("../images/Account.svg");
-  display: flex;
-}
+#account-container { background-image: url("../images/Account.svg"); }
 #leaderboard-container { background-image: url("../images/Leaderboard.svg"); }
 
 .content-container {
@@ -30,7 +27,7 @@ body, html {
   height: 100vh;
   max-width: 600px;
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
   background-color: #32682B;
   background-size: cover; 
   background-position: center; 
@@ -121,6 +118,7 @@ input {
   justify-content: center;
   width: 90%;
   align-items: center;
+  margin: 0 auto;
 }
 
 #account-page button {

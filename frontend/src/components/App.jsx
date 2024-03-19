@@ -18,7 +18,7 @@ export default function App() {
 
   const handleToggleNav = () => {
     setToggleNav(prevToggleNav => !prevToggleNav);
-    document.getElementById("navbar").style.width = (toggleNav ? "98%" : "12%")
+    document.getElementById("navbar").style.width = (toggleNav ? "98%" : "50px")
   }
 
   const renderPage = () => {
