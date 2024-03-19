@@ -12,9 +12,10 @@ class User(AbstractUser):
     email_confirmed = models.BooleanField(default=False)
     def __unicode__(self):
         return self.username
-    
+
+# Probably going to be binned. NOTE: Clean up this mess later
 class Collection(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='collections')
+    id = models.OneToOneField(User, on_delete=models.CASCADE, related_name='collections', primary_key=True, unique=True)
     monster = models.ForeignKey('Monster', on_delete=models.CASCADE, related_name='collections')
     def __str__(self):
         return 'UserID:' + str(self.user.id) + ' MonsterID:' + str(self.monster.type.id)

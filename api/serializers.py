@@ -2,6 +2,7 @@ from rest_framework import serializers
 from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework.exceptions import ValidationError
+from .models import Collection, Monster
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -57,3 +58,13 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
 
         return instance
+
+# class CollectionSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Collection
+#         fields = ('user_id', 'type_id', 'obtained')
+
+class MonsterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Monster
+        fields = ('id', 'user_id', 'type_id', 'obtained')

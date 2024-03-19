@@ -12,6 +12,8 @@ urlpatterns = [
     # Test page
     path('hello/', views.HelloView.as_view(), name='hello'),
 
+    path('collection/', views.CollectionView.as_view(), name='collection'),
+
     # Enables DRF built-in 'sign in' view
     path('api/login/', obtain_auth_token, name='api_token_auth'),
 

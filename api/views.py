@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import User
-from .serializers import UserSerializer
+from .models import User, Monster
+from .serializers import UserSerializer, MonsterSerializer
 from rest_framework.viewsets import GenericViewSet, ViewSet, ModelViewSet
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -12,6 +12,7 @@ from rest_framework.schemas import ManualSchema, coreapi as coreapi_schema
 from rest_framework import status, parsers, renderers
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.compat import coreapi, coreschema
+
 
 class UserListCreate(GenericViewSet):
     """
@@ -35,6 +36,81 @@ class HelloView(APIView):
     def get(self, request):
         content = {'message': 'Hello, World!'}
         return Response(content)
+    
+
+# class TodoListApiView(APIView):
+#     # add permission to check if user is authenticated
+#     permission_classes = [IsAuthenticated]
+
+#     # 1. List all
+#     def get(self, request, *args, **kwargs):
+#         '''
+#         List all the todo items for given requested user
+#         '''
+#         # collection = Monster.objects.filter(user = request.user.id)
+#         user = User.objects.filter(user = request.token.id)
+#         serializer = TodoSerializer(todos, many=True)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+
+#     # 2. Create
+#     def post(self, request, *args, **kwargs):
+#         '''
+#         Create the Todo with given todo data
+#         '''
+#         data = {
+#             'task': request.data.get('task'), 
+#             'completed': request.data.get('completed'), 
+#             'user': request.user.id
+#         }
+#         serializer = TodoSerializer(data=data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CollectionView(APIView):
+    """
+    Gets a collection of monsters by user id
+    """
+    permission_classes = IsAuthenticated,
+
+    @staticmethod
+    def get(request: Request) -> Response:
+
+        # Gets string from header
+        auth_header = request.META.get('HTTP_AUTHORIZATION').split()
+
+        # Checks if it contains a token
+        if len(auth_header) != 2 or auth_header[0].lower() != 'token':
+            raise ValidationError('No token')
+
+        # Checks if token exists in database
+        if not Token.objects.filter(key=auth_header[1]):
+            raise ValidationError('Invalid token')
+
+        # Gets user id from token
+        user = Token.objects.get(key=auth_header[1]).user_id
+
+        # Gets all monsters for user
+        monsters = Monster.objects.all().filter(user_id=user)
+
+        # Creates JSON data
+        collection = []
+        for monster in monsters:
+            collection.append({
+                'monster': {
+                    'type': {
+                        'name': monster.type.name,
+                        'description': monster.type.description,
+                        'picture': monster.type.picture
+                    },
+                    'obtained': monster.obtained
+                }
+            })
+        
+        return Response({'collection': collection}, status=status.HTTP_200_OK)
 
 class LogoutView(APIView):
     """
