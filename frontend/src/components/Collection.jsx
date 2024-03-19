@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import "./collection-style.css";
+import blob from '../images/Monsters/Blob.svg'
+import sockub from '../images/Monsters/Sockub.svg'
+import chickpick from '../images/Monsters/Chickpick.svg'
+import loom from '../images/Monsters/Loom.svg'
+import gunth from '../images/Monsters/Gunth.svg'
+import vorp from '../images/Monsters/Vorp.svg'
+import bonepos from '../images/Monsters/Bonepos.svg'
+import torrentoise from '../images/Monsters/Torrentoise.svg'
+import veneam from '../images/Monsters/Veneam.svg'
+import sparret from '../images/Monsters/Sparret.svg'
 
 
 export default function Collection() {
   const [monsters, setMonsters] = useState([]);
-
 
   useEffect(() => {
     document.title = 'Collection';
     getCollection();
   }, []);
 
-    // const [error, setError] = useState("");
-
-  
   const getCollection = async () => {
-
     const response = await fetch("api/collection/", {
       method: "GET",
       headers: {
@@ -23,27 +28,16 @@ export default function Collection() {
         "Authorization": "Token " + localStorage.getItem('token'),
       }
     });
+    
     if (response.ok) {
       const responseData = await response.json();
-
-      const monsters_array = [];
-      for (let i = 0; i < responseData['collection'].length; i++) {
-        monsters_array.push(
-          [
-            responseData['collection'][i]['monster']['type']['name'],
-            responseData['collection'][i]['monster']['type']['picture'],
-            responseData['collection'][i]['monster']['type']['description'],
-            responseData['collection'][i]['monster']['obtained']
-          ]
-          );
-      }
-      setMonsters(monsters_array);
-      
+      const monstersArray = responseData.collection.map(item => ({
+        name: item.monster.type.name,
+        picture: item.monster.type.picture
+      }));
+      setMonsters(monstersArray);
     } else {
-      const responseData = await response.json();
-      Object.values(responseData).forEach((value) => {
-        setError(value[0]);
-      } );
+      console.error("Failed to fetch collection");
     }
   };
 
@@ -57,20 +51,19 @@ export default function Collection() {
       </h1>
       <div id="all">
         <div id="info">
-          <p>Percentage of Collection Compeleted: </p>
+          <p>Percentage of Collection Completed: {Math.round((monsters.length / 10) * 100)}%</p>
         </div>
         <div className="scrolling-wrapper">
-          
-          <div className="card-wrap">
-            <div className="card-content">
-              <p className="card-level">1</p>
-              <h1 className="card-title">Blob{console.log(monsters.length)}</h1>
+          {monsters.map((monster, index) => (
+            <div key={index} className="card-wrap">
+              <div className="card-content">
+                <h1 className="card-title">{monster.name}</h1>
+              </div>
+              <div className="card-header">
+                <img src={monster.name} />
+              </div>
             </div>
-            <div className="card-header">
-              {/* <img id="sockub" src={sockub}/> */}
-            </div>
-          </div>
-          
+          ))}
         </div>
       </div>
     </div>
