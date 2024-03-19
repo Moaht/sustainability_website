@@ -27,7 +27,7 @@ body, html {
   height: 100vh;
   max-width: 600px;
   margin: 0;
-  overflow: auto;
+  overflow-y: auto;
   background-color: #32682B;
   background-size: cover; 
   background-position: center; 

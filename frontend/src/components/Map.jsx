@@ -225,7 +225,7 @@ export default function Map() {
                   <img id="monster1-2"/>
                 </div>
               )}
-              <p>Task 1: Read a text and answer a question</p>
+              <p>Task 1: Read a text and answer a question.</p>
               <img className="monster" src={monster} onClick={handleClick1}/>
               <button type="button" className="btn btn-primary" id="read">
                 Read
@@ -239,10 +239,28 @@ export default function Map() {
                   <img id="monster2-2"/>
                 </div>
               )}
-              <p>Task 2: Temp attachment task placeholder</p>
+              <p>Task 2: Pick up three pieces of litter on campus.</p>
               <img className="monster" src={monster} onClick={handleClick2}/>
-              <img className="attach" src={attach} />
-              <img className="tick" src={tick} />
+              <form class="task-form" onSubmit="">
+                <label for="attach1">
+                  <img class="task-button" src={attach}/>
+                </label>
+                <input 
+                  class="task-input"
+                  type="file" 
+                  id="attach1" 
+                  accept="image/*"
+                  required
+                  />
+                <label for="confirm1">
+                  <img class="task-button" src={tick}/>
+                </label>
+                <input 
+                  class="task-input"
+                  type="submit" 
+                  id="confirm1" 
+                  />
+              </form>
             </div>
 
             <div className="task" id="task3">
@@ -252,10 +270,28 @@ export default function Map() {
                   <img id="monster3-2"/>
                 </div>
               )}
-              <p>Task 3: Temp attachment task placeholder</p>
+              <p>Task 3: Make a social media post with the hashtag #Weltiworks #Sustainability.</p>
               <img className="monster" src={monster} onClick={handleClick3}/>
-              <img className="attach" src={attach} />
-              <img className="tick" src={tick} />
+              <form class="task-form" onSubmit="">
+                <label for="attach2">
+                  <img class="task-button" src={attach}/>
+                </label>
+                <input 
+                  class="task-input"
+                  type="file" 
+                  id="attach2" 
+                  accept="image/*"
+                  required
+                  />
+                <label for="confirm2">
+                  <img class="task-button" src={tick}/>
+                </label>
+                <input 
+                  class="task-input"
+                  type="submit" 
+                  id="confirm2" 
+                  />
+              </form>
             </div>
           </div>
         )}

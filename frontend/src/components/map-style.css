@@ -4,12 +4,13 @@
   width: 100%;
   max-width: 600px;
   margin: 0;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 #board {
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 #map {
@@ -143,4 +144,18 @@
 .overlay img:active {
   box-shadow: 0;
   transform: none;
+}
+
+.task-input {
+  display: none;
+}
+
+.task-form {
+  display: flex;
+  align-items: center;
+}
+
+.task-button {
+  width: 50px;
+  height: 50px;
 }
