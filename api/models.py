@@ -30,7 +30,7 @@ class Monster(models.Model):
 
 class MonsterType (models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, unique=True)
-    picture = models.CharField(max_length=200, null=False, blank=False, default='../images/Monsters/Blob.svg')
+    picture = models.ImageField(upload_to='Monsters/', null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     # Add base stats here at some point.... maybe
     def __str__(self):

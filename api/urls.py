@@ -5,6 +5,8 @@ from django.urls import path
 from . import views
 # For built-in DRF authentication and authorisation
 from rest_framework.authtoken.views import obtain_auth_token
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -24,6 +26,9 @@ urlpatterns = [
     path('api/logout/', views.LogoutView.as_view(), name='logout'),
 ]
 
+# If in debug mode, serve media files, otherwise change this to a proper media server
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 router = routers.SimpleRouter()
 router.register(r'api/signup', viewset=views.UserListCreate)
