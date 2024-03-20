@@ -18,18 +18,6 @@ const HomePage = ({ setPage }) => {
         <button onClick={() => setPage('signup')} className="btn btn-primary">
           Sign Up
         </button>
-        <button onClick={() => setPage('map')} className="btn btn-primary">
-          [DEV] Map
-        </button>
-        <button onClick={() => setPage('collection')} className="btn btn-primary">
-          [DEV] Collection
-        </button>
-        <button onClick={() => setPage('account')} className="btn btn-primary">
-          [DEV] Account
-        </button>
-        <button onClick={() => setPage('leaderboard')} className="btn btn-primary">
-          [DEV] Leaderboard
-        </button>
       </div>
     </div>
   );

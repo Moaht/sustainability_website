@@ -7,6 +7,7 @@ import tick from '../images/Tick.svg'
 import cross from '../images/Cross.svg'
 import monster from '../images/Monster.svg'
 import attach from '../images/Attach.svg'
+import attach_valid from '../images/Attach_Valid.svg'
 import blob from '../images/Monsters/Blob.svg'
 import sockub from '../images/Monsters/Sockub.svg'
 import chickpick from '../images/Monsters/Chickpick.svg'
@@ -30,6 +31,34 @@ export default function Map() {
   const [monster5, setMonster5] = useState('');
   const [monster6, setMonster6] = useState('');
   const [showText, setShowText] = useState(false);
+  const [imageSrc1, setImageSrc1] = useState(attach);
+  const [imageSrc2, setImageSrc2] = useState(attach);
+
+  const handleFileChange1 = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageSrc1(attach_valid);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImageSrc1(attach);
+    }
+  };
+
+  const handleFileChange2 = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageSrc2(attach_valid);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImageSrc2(attach);
+    }
+  };
 
   const handleClick1 = () => {
     setShowOverlay1(true);
@@ -279,27 +308,28 @@ export default function Map() {
               </button>
             </div>
 
-            <div className="task" id="task2">
+            <div class="task" id="task2">
               {showOverlay2 && (
                 <div className="overlay">
-                  <img id="monster2-1"/>
-                  <img id="monster2-2"/>
+                  <img src="/Monsters/Blob.svg" />
+                  <img src="/Monsters/Sockub.svg" />
                 </div>
               )}
-              <p>Task 2: Pick up three pieces of litter on campus.</p>
-              <img className="monster" src={monster} onClick={handleClick2}/>
+              <p>Task 2: Temp attachment task placeholder</p>
+              <img src={monster} onClick={handleClick2}/>
               <form class="task-form" onSubmit="">
-                <label for="attach1">
-                  <img class="task-button" src={attach}/>
+                <label class="task-label" htmlFor="attach1">
+                  <img class="task-button" src={imageSrc1}/>
                 </label>
-                <input 
+                <input
                   class="task-input"
-                  type="file" 
-                  id="attach1" 
+                  type="file"
+                  id="attach1"
                   accept="image/*"
+                  onChange={handleFileChange1}
                   required
-                  />
-                <label for="confirm1">
+                />
+                <label class="task-label" for="confirm1">
                   <img class="task-button" src={tick}/>
                 </label>
                 <input 
@@ -309,27 +339,28 @@ export default function Map() {
                   />
               </form>
             </div>
-
-            <div className="task" id="task3">
+            <div class="task" id="task3">
               {showOverlay3 && (
                 <div className="overlay">
-                  <img id="monster3-1"/>
-                  <img id="monster3-2"/>
+                  <img src="/Monsters/Vorp.svg" />
+                  <img src="/Monsters/Torrentoise.svg" />
                 </div>
               )}
-              <p>Task 3: Make a social media post with the hashtag #Weltiworks #Sustainability.</p>
-              <img className="monster" src={monster} onClick={handleClick3}/>
+
+              <p>Task 3: Temp attachment task placeholder</p>
+              <img src={monster} onClick={handleClick3}/>
               <form class="task-form" onSubmit="">
-                <label for="attach2">
-                  <img class="task-button" src={attach}/>
+                <label class="task-label" htmlFor="attach2">
+                  <img class="task-button" src={imageSrc2}/>
                 </label>
-                <input 
+                <input
                   class="task-input"
-                  type="file" 
-                  id="attach2" 
+                  type="file"
+                  id="attach2"
                   accept="image/*"
+                  onChange={handleFileChange2}
                   required
-                  />
+                />
                 <label for="confirm2">
                   <img class="task-button" src={tick}/>
                 </label>

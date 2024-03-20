@@ -4,6 +4,7 @@ import LogIn from "./LogIn";
 import Map from "./Map";
 import Collection from "./Collection";
 import Account from "./Account";
+import TermsAndConditions from "./TermsAndConditions";
 import Leaderboard from "./Leaderboard";
 import React, { useState } from "react";
 import "./navbar-style.css";
@@ -37,6 +38,8 @@ export default function App() {
         return <Account setPage={setPage}/>;
       case 'leaderboard':
         return <Leaderboard setPage={setPage}/>;
+      case 'termsandconditions':
+        return <TermsAndConditions setPage={setPage}/>;
     }
   }
 
@@ -56,7 +59,7 @@ export default function App() {
           <img src={expand} onClick={handleToggleNav}/>
         </div>
       )}
-      {((page == 'signup') || (page == 'login')) && (
+      {((page == 'signup') || (page == 'login') || (page == 'termsandconditions')) && (
         <div className="btn btn-primary back" onClick={() => setPage('home')}>
             <img src={back}/>
             <p>Back</p>

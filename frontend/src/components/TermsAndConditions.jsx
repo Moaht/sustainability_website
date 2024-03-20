@@ -1,8 +1,10 @@
 import React from 'react';
 
-function TermsAndConditions() {
+export default function TermsAndConditions() {
   return (
-    <div>
+    <div id="TaC">
+      <br></br>
+      <br></br>
       <h1>Terms and Conditions for Welti-Go! Website</h1>
 
       <h2>1. Acceptance of Terms</h2>
@@ -66,5 +68,3 @@ function TermsAndConditions() {
     </div>
   );
 }
-
-export default TermsAndConditions;
