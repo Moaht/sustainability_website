@@ -39,6 +39,7 @@ Then we activate the virtual environment:
 Then we upgrade pip and install a few modules:
 ```
 python -m pip install --upgrade pip django djangorestframework
+python -m pip install Pillow 
 ```
 > [!IMPORTANT]
 > Before you move on to the next step, make sure your node and npm are updated to the latest version.
