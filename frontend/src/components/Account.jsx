@@ -39,11 +39,8 @@ export default function HomePage({ setPage }) {
       <div id="account-page">
         <button onClick={() => logOut()} className="btn btn-primary" id="logout-button">Log Out</button>
         <br></br>
-        <button className="btn btn-primary change-button">Change Email</button>
-        <button className="btn btn-primary change-button">Change Username</button>
-        <button className="btn btn-primary change-button">Change Password</button>
         <br></br>
-        <button className="btn btn-primary" id="tac-button">Terms and Conditions</button>
+        <button onClick={() => setPage('termsandconditions')} className="btn btn-primary" id="tac-button">Terms and Conditions</button>
         <br></br>
         <button className="btn btn-primary" id="delete-button">Delete Account</button>
       </div>
