@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import User, Monster
+from .models import User, Monster, MonsterType
 from .serializers import UserSerializer, MonsterSerializer
 from rest_framework.viewsets import GenericViewSet, ViewSet, ModelViewSet
 from rest_framework.request import Request
@@ -12,7 +12,7 @@ from rest_framework.schemas import ManualSchema, coreapi as coreapi_schema
 from rest_framework import status, parsers, renderers
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.compat import coreapi, coreschema
-
+from django.shortcuts import get_object_or_404
 
 class UserListCreate(GenericViewSet):
     """
@@ -99,16 +99,18 @@ class CollectionView(APIView):
         # Creates JSON data
         collection = []
         for monster in monsters:
+            monster_type = get_object_or_404(MonsterType, name=monster.type.name)
             collection.append({
                 'monster': {
                     'type': {
-                        'name': monster.type.name,
-                        'description': monster.type.description,
-                        'picture': monster.type.picture
+                        'name': monster_type.name,
+                        'description': monster_type.description,
+                        'picture': request.build_absolute_uri(monster_type.picture.url)
                     },
                     'obtained': monster.obtained
                 }
             })
+
         
         return Response({'collection': collection}, status=status.HTTP_200_OK)
 
