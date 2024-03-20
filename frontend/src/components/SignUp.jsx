@@ -110,9 +110,7 @@ export default function SignUp({ setPage }) {
         </div>
         <div id="tac">
             <input id="checkbox" type="checkbox" required />
-            <label for="checkbox"> I agree to these <button onClick={() => setPage('termsandconditions')}>
-          Terms and Conditions
-        </button></label>
+            <label for="checkbox"> I agree to these <button onClick={() => setPage('termsandconditions')}>Terms and Conditions</button></label>
         </div>
         <button type="submit" className="btn btn-primary">
           Submit
