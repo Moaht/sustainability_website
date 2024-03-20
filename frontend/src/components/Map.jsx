@@ -4,6 +4,7 @@ import pointerOn from '../images/Pointer_ON.svg'
 import pointerOff from '../images/Pointer_OFF.svg'
 import map from '../images/Map.svg'
 import tick from '../images/Tick.svg'
+import cross from '../images/Cross.svg'
 import monster from '../images/Monster.svg'
 import attach from '../images/Attach.svg'
 import blob from '../images/Monsters/Blob.svg'
@@ -28,6 +29,7 @@ export default function Map() {
   const [monster4, setMonster4] = useState('');
   const [monster5, setMonster5] = useState('');
   const [monster6, setMonster6] = useState('');
+  const [showText, setShowText] = useState(false);
 
   const handleClick1 = () => {
     setShowOverlay1(true);
@@ -145,6 +147,51 @@ export default function Map() {
   
   return (
     <div id="main">
+
+      {showText && (
+        <div class="overlay" id="read-overlay">
+          <img src={cross} class="btn btn-primary" id="close-read" onClick={() => setShowText(false)}/>
+          <div id="text">
+            <p id="text-title">Reading Text</p>
+            <p>Read through the following text about sustainability:
+              Positive contributors to sustainability encompass a spectrum of initiatives and practices that promote environmental health and resilience within the campus community. From the installation of solar panels and implementation of energy-efficient technologies to the creation of green spaces and promotion of sustainable transportation options, these efforts demonstrate a commitment to reducing carbon emissions, conserving resources, and fostering a more eco-friendly campus culture. Additionally, programs that facilitate recycling and composting, along with initiatives to minimise food waste and promote local, organic food sourcing, play a pivotal role in promoting sustainable practices. Through these endeavours, individuals and institutions alike can work together to mitigate environmental impact and create a more sustainable future for generations to come.
+</p>
+          </div>
+          <div id="question">
+            <form class="read-form" onSubmit="">
+              <p id="text-title">Question</p>
+              <p id="text-question">Which of the following is NOT mentioned as a positive contributor to sustainability on campus? </p>
+
+              <label for="answer1" class="answer" >
+                <input type="radio" id="answer1" value="30"/>    
+                Installation of solar panels 
+              </label>
+              <label for="answer2" class="answer" >
+                <input type="radio" id="answer2" value="60"/>
+                Promotion of sustainable transportation options 
+              </label><br/>
+              <label for="answer3"class="answer" >
+                <input type="radio" id="answer3" value="100"/>
+                Expansion of fossil fuel usage 
+              </label>
+              <label for="answer4" class="answer" >
+                <input type="radio"  id="answer4" value="100"/>
+                Creation of green spaces 
+              </label><br/>
+              
+              <label class="task-label" for="read-confirm">
+                <img class="task-button" id="read-confirm" 
+ src={tick}/>
+                <input 
+                  class="task-input"
+                  type="submit" 
+                  />
+              </label>
+            </form>
+          </div>
+        </div>
+      )}
+
       <div id="board">
         <img id="map" src={map} />
         <div id="peter" className="location">
@@ -227,7 +274,7 @@ export default function Map() {
               )}
               <p>Task 1: Read a text and answer a question.</p>
               <img className="monster" src={monster} onClick={handleClick1}/>
-              <button type="button" className="btn btn-primary" id="read">
+              <button type="button" className="btn btn-primary" id="read" onClick={() => setShowText(true)}>
                 Read
               </button>
             </div>
