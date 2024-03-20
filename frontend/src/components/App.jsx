@@ -59,7 +59,7 @@ export default function App() {
           <img src={expand} onClick={handleToggleNav}/>
         </div>
       )}
-      {((page == 'signup') || (page == 'login')) && (
+      {((page == 'signup') || (page == 'login') || (page == 'termsandconditions')) && (
         <div className="btn btn-primary back" onClick={() => setPage('home')}>
             <img src={back}/>
             <p>Back</p>
