@@ -30,6 +30,8 @@ export default function Collection() {
     }
   };
 
+  const uniqueMonsterNames = Array.from(new Set(monsters.map(monster => monster.name)));
+
   return (
     <div id="collection-container" className="content-container">
       <h1>
@@ -40,7 +42,7 @@ export default function Collection() {
       </h1>
       <div id="all">
         <div id="info">
-          <p>Percentage of Collection Completed: {Math.round((monsters.length / 10) * 100)}%</p>
+          <p>Percentage of Collection Completed: {Math.round((uniqueMonsterNames.length / 10) * 100)}%</p>
         </div>
         <div className="scrolling-wrapper">
           {monsters.map((monster, index) => (
@@ -49,7 +51,7 @@ export default function Collection() {
                 <h1 className="card-title">{monster.name}</h1>
               </div>
               <div className="card-header">
-                <img src={monster.picture} />
+                <img src={monster.picture} alt={monster.name} />
               </div>
             </div>
           ))}
