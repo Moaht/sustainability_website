@@ -158,24 +158,24 @@ export default function Map() {
 </p>
           </div>
           <div id="question">
-            <form class="read-form" onSubmit="">
+          <form class="read-form" onSubmit="">
               <p id="text-title">Question</p>
               <p id="text-question">Which of the following is NOT mentioned as a positive contributor to sustainability on campus? </p>
 
               <label for="answer1" class="answer" >
-                <input type="radio" id="answer1" value="30"/>    
+                <input type="radio" name="answer" id="answer1" value="Installation of solar panels" required/>    
                 Installation of solar panels 
               </label>
               <label for="answer2" class="answer" >
-                <input type="radio" id="answer2" value="60"/>
+                <input type="radio" name="answer" id="answer2" value="Promotion of sustainable transportation options"/>
                 Promotion of sustainable transportation options 
               </label><br/>
-              <label for="answer3"class="answer" >
-                <input type="radio" id="answer3" value="100"/>
+              <label for="answer3" class="answer" >
+                <input type="radio" name="answer" id="answer3" value="Expansion of fossil fuel usage"/>
                 Expansion of fossil fuel usage 
               </label>
               <label for="answer4" class="answer" >
-                <input type="radio"  id="answer4" value="100"/>
+                <input type="radio" name="answer" id="answer4" value="Creation of green spaces"/>
                 Creation of green spaces 
               </label><br/>
               
