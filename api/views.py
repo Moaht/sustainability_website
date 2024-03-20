@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import User, Monster, MonsterType
+from .models import User, Monster, MonsterType, Task, TaskType, TaskVerification, Location, LocationType
 from .serializers import UserSerializer, MonsterSerializer
 from rest_framework.viewsets import GenericViewSet, ViewSet, ModelViewSet
 from rest_framework.request import Request
@@ -188,3 +188,143 @@ class LogoutView(APIView):
 #         user = serializer.validated_data['user']
 #         token, created = Token.objects.get_or_create(user=user)
 #         return Response({'token': token.key})
+    
+
+#         }
+#         serializer = TodoSerializer(data=data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class LocationView(APIView):
+    """
+    Gets location information by location id
+    """
+    permission_classes = IsAuthenticated,
+
+    @staticmethod
+    def get(request: Request, location_id: int) -> Response:
+
+        # Gets string from header
+        auth_header = request.META.get('HTTP_AUTHORIZATION').split()
+
+        # Checks if it contains a token
+        if len(auth_header) != 2 or auth_header[0].lower() != 'token':
+            raise ValidationError('No token')
+
+        # Checks if token exists in database
+        if not Token.objects.filter(key=auth_header[1]):
+            raise ValidationError('Invalid token')
+
+        # Gets all tasks for user
+        location_query = Location.objects.all().filter(id=location_id)
+
+        # Create JSON data for a particular location including the tasks allocated to it
+        # As only one location is returned, only one location is created
+
+        location_list = []
+        for loc in location_query:
+            location_list.append({
+                    'name': loc.name,
+                    'type': loc.type.name,
+                    'longitude': loc.longitude,
+                    'latitude': loc.latitude,
+                    'task_slot1': '',
+                    'task_slot2': '',
+                    'task_slot3': '',
+        })
+
+        if (task_slot1 := loc.task_slot1) is not None:
+            task_type = get_object_or_404(TaskType, name=task_slot1.type.name)
+            location_list[0]['task_slot1'] = {
+                'name': task_slot1.name,
+                'type': task_type.name,
+                'task_description': task_slot1.task_description,
+                'verify_instructions': task_slot1.verify_instructions,
+                'verify_example_photo': request.build_absolute_uri(task_slot1.verify_example_photo.url),
+                'monster_slot1': '',
+                'monster_slot2': '',
+            }
+
+            if (monster_slot1 := task_slot1.monster_slot1) is not None:
+                monster_type = get_object_or_404(MonsterType, name=monster_slot1.name)
+                location_list[0]['task_slot1']['monster_slot1'] = {
+                    'name': monster_slot1.name,
+                    'description': monster_type.description,
+                    'picture': request.build_absolute_uri(monster_type.picture.url),
+                    'chance': task_slot1.monster_slot1_chance
+                }
+            
+            if (monster_slot2 := task_slot1.monster_slot2) is not None:
+                monster_type = get_object_or_404(MonsterType, name=monster_slot2.name)
+                location_list[0]['task_slot1']['monster_slot2'] = {
+                    'name': monster_slot2.name,
+                    'description': monster_type.description,
+                    'picture': request.build_absolute_uri(monster_type.picture.url),
+                    'chance': task_slot1.monster_slot2_chance
+                }
+        
+        if (task_slot2 := loc.task_slot2) is not None:
+            task_type = get_object_or_404(TaskType, name=task_slot2.type.name)
+            location_list[0]['task_slot2'] = {
+                'name': task_slot2.name,
+                'type': task_type.name,
+                'task_description': task_slot2.task_description,
+                'verify_instructions': task_slot2.verify_instructions,
+                'verify_example_photo': request.build_absolute_uri(task_slot2.verify_example_photo.url),
+                'monster_slot1': '',
+                'monster_slot2': '',
+            }
+        
+            if (monster_slot1 := task_slot2.monster_slot1) is not None:
+                monster_type = get_object_or_404(MonsterType, name=monster_slot1.name)
+                location_list[0]['task_slot2']['monster_slot1'] = {
+                    'name': monster_slot1.name,
+                    'description': monster_type.description,
+                    'picture': request.build_absolute_uri(monster_type.picture.url),
+                    'chance': task_slot2.monster_slot1_chance
+                }
+
+            if (monster_slot2 := task_slot2.monster_slot2) is not None:
+                monster_type = get_object_or_404(MonsterType, name=monster_slot2.name)
+                location_list[0]['task_slot2']['monster_slot2'] = {
+                    'name': monster_slot2.name,
+                    'description': monster_type.description,
+                    'picture': request.build_absolute_uri(monster_type.picture.url),
+                    'chance': task_slot2.monster_slot2_chance
+                }
+            
+        if (task_slot3 := loc.task_slot3) is not None:
+            task_type = get_object_or_404(TaskType, name=task_slot3.type.name)
+            location_list[0]['task_slot3'] = {
+                'name': task_slot3.name,
+                'type': task_type.name,
+                'task_description': task_slot3.task_description,
+                'verify_instructions': task_slot3.verify_instructions,
+                'verify_example_photo': request.build_absolute_uri(task_slot3.verify_example_photo.url),
+                'monster_slot1': '',
+                'monster_slot2': '',
+            }
+
+            if (monster_slot1 := task_slot3.monster_slot1) is not None:
+                monster_type = get_object_or_404(MonsterType, name=monster_slot1.name)
+                location_list[0]['task_slot3']['monster_slot1'] = {
+                    'name': monster_slot1.name,
+                    'description': monster_type.description,
+                    'picture': request.build_absolute_uri(monster_type.picture.url),
+                    'chance': task_slot3.monster_slot1_chance
+                }
+
+            if (monster_slot2 := task_slot3.monster_slot2) is not None:
+                monster_type = get_object_or_404(MonsterType, name=monster_slot2.name)
+                location_list[0]['task_slot3']['monster_slot2'] = {
+                    'name': monster_slot2.name,
+                    'description': monster_type.description,
+                    'picture': request.build_absolute_uri(monster_type.picture.url),
+                    'chance': task_slot3.monster_slot2_chance
+                }
+
+
+        return Response({'location': location_list[0]}, status=status.HTTP_200_OK)

@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework.exceptions import ValidationError
-from .models import Collection, Monster
+from .models import Monster
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
