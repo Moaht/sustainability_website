@@ -16,7 +16,16 @@ export default function Map() {
   const [imageSrc3, setImageSrc3] = useState(attach);
   const [Task1Desc, setTask1Desc] = useState('');
   const [Task2Desc, setTask2Desc] = useState('');
-  const [Task3Desc, setTask3Desc] = useState('');#
+  const [Task3Desc, setTask3Desc] = useState('');
+  const [showOverlay1, setShowOverlay1] = useState(false);
+  const [showOverlay2, setShowOverlay2] = useState(false);
+  const [showOverlay3, setShowOverlay3] = useState(false);
+  const [monster1, setMonster1] = useState('');
+  const [monster2, setMonster2] = useState('');
+  const [monster3, setMonster3] = useState('');
+  const [monster4, setMonster4] = useState('');
+  const [monster5, setMonster5] = useState('');
+  const [monster6, setMonster6] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -85,6 +94,27 @@ export default function Map() {
     }
   };
 
+  const handleClick1 = () => {
+    setShowOverlay1(true);
+    setTimeout(() => {
+      setShowOverlay1(false);
+    }, 2000);
+  };
+
+  const handleClick2 = () => {
+    setShowOverlay2(true);
+    setTimeout(() => {
+      setShowOverlay2(false);
+    }, 2000);
+  };
+
+  const handleClick3 = () => {
+    setShowOverlay3(true);
+    setTimeout(() => {
+      setShowOverlay3(false);
+    }, 2000);
+  };
+
   function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
     const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -148,6 +178,12 @@ export default function Map() {
                 setTask1Desc(respData.location.task_slot1.task_description);
                 setTask2Desc(respData.location.task_slot2.task_description);
                 setTask3Desc(respData.location.task_slot3.task_description);
+                setMonster1(respData.location.task_slot1.monster_slot1.picture);
+                setMonster2(respData.location.task_slot1.monster_slot2.picture);
+                setMonster3(respData.location.task_slot2.monster_slot1.picture);
+                setMonster4(respData.location.task_slot2.monster_slot2.picture);
+                setMonster5(respData.location.task_slot3.monster_slot1.picture);
+                setMonster6(respData.location.task_slot3.monster_slot2.picture);
               } else {
                 console.error("Failed to fetch location data");
               }
@@ -171,6 +207,27 @@ export default function Map() {
   useEffect(() => {
     document.title = 'Map';
   }, []);
+
+  useEffect(() => {
+    if (showOverlay1) {
+      document.getElementById("monster1-1").src = monster1;
+      document.getElementById("monster1-2").src = monster2;
+    }
+  }, [showOverlay1]);
+
+  useEffect(() => {
+    if (showOverlay2) {
+      document.getElementById("monster2-1").src = monster3;
+      document.getElementById("monster2-2").src = monster4;
+    }
+  }, [showOverlay2]);
+
+  useEffect(() => {
+    if (showOverlay3) {
+      document.getElementById("monster3-1").src = monster5;
+      document.getElementById("monster3-2").src = monster6;
+    }
+  }, [showOverlay3]);
   
   return (
     <div id="main">
@@ -248,7 +305,14 @@ export default function Map() {
         {currentBuilding && (
           <div id="all-tasks">
             <div class="task" id="task1">
+              {showOverlay1 && (
+                <div className="overlay">
+                  <img id="monster1-1"/>
+                  <img id="monster1-2"/>
+                </div>
+              )}
               <p>Task 1:{Task1Desc}</p>
+              <img src={monster} onClick={handleClick1}/>
               <form class="task-form" onSubmit="">
                 <label class="task-label" htmlFor="attach1">
                   <img class="task-button" src={imageSrc1}/>
@@ -273,7 +337,14 @@ export default function Map() {
             </div>
 
             <div class="task" id="task2">
+              {showOverlay2 && (
+                <div className="overlay">
+                  <img id="monster2-1"/>
+                  <img id="monster2-2"/>
+                </div>
+              )}
               <p>Task 2: {Task2Desc}</p>
+              <img src={monster} onClick={handleClick2}/>
               <form class="task-form" onSubmit="">
                 <label class="task-label" htmlFor="attach2">
                   <img class="task-button" src={imageSrc2}/>
@@ -298,7 +369,14 @@ export default function Map() {
             </div>
 
             <div class="task" id="task3">
+              {showOverlay3 && (
+                <div className="overlay">
+                  <img id="monster3-1"/>
+                  <img id="monster3-2"/>
+                </div>
+              )}
               <p>Task 3: {Task3Desc}</p>
+              <img src={monster} onClick={handleClick3}/>
               <form class="task-form" onSubmit="">
                 <label class="task-label" htmlFor="attach3">
                   <img class="task-button" src={imageSrc3}/>
