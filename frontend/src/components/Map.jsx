@@ -113,7 +113,7 @@ const handleFileChange3 = (event) => {
     const pointer = document.getElementById(pointerid);
     const current = document.getElementById(currentBuilding);
     const buildings = {
-      "into-pointer": { name: "INTO", latitude: 50.729221236623246, longitude: -3.519101944740235, id: 1}, //My location to debug, change when finished
+      "into-pointer": { name: "INTO", latitude: 50.736325387118086, longitude: -3.535975245769926, id: 1}, //My location to debug, change when finished
       "peter-pointer": { name: "Peter Chalk Centre", latitude: 50.736325387118086, longitude: -3.535975245769926, id: 2 },
       "streath-pointer": { name: "Streatham Court", latitude: 50.73589298893594, longitude: -3.53092028994958, id: 3 },
       "amory-pointer": { name: "Amory Building", latitude: 50.736672146278565, longitude: -3.531684389949515, id: 4 },
@@ -138,7 +138,7 @@ const handleFileChange3 = (event) => {
             current.src = pointerOff;
             current.style.transform = 'scale(1)';
           }
-          if (distance <= 30000000) {
+          if (distance <= 30) {
             setCurrentBuilding(pointerid);
             document.getElementById("inside-words").innerHTML = "Current Building: " + building.name;
             const location_id = building.id;
