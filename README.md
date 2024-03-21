@@ -71,6 +71,13 @@ http://127.0.0.1:8000/admin
 We have populated database with the file data.sql, feel free to use it
 
 
+To access the gamekeeper page, cd into gamekeeper run
+```npm i```
+then
+```npm run dev```
+to access it, go to site ```http://127.0.0.1:8000/staff```
+
+
 >[!TIP]
 >You may wish to set up an webmaster admin (superuser) account. 
 >To do so, you will need to do:
