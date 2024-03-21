@@ -26,7 +26,10 @@ export default function Map() {
   const [monster4, setMonster4] = useState('');
   const [monster5, setMonster5] = useState('');
   const [monster6, setMonster6] = useState('');
-
+  const [formData1, setFormData1] = useState({id: "", image: null});
+  const [formData2, setFormData2] = useState({id: "", image: null});
+  const [formData3, setFormData3] = useState({id: "", image: null});
+/*
   const handleSubmit = async (event) => {
     event.preventDefault();
     const file = event.target.files[0];
@@ -34,13 +37,13 @@ export default function Map() {
       const reader = new FileReader();
       reader.onload = async () => {
         const img = reader.result;
+        console.log(img);
         const response = await fetch("api/task-send/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Token " + localStorage.getItem('token'),
           },
-          body: JSON.stringify({ id: 0, image: img, }), 
         });
         if (response.ok) {
           const responseData = await response.json();
@@ -54,9 +57,29 @@ export default function Map() {
       reader.readAsDataURL(file); 
     }
   };
+*/
+const handleSubmit = async (formData, event) => {
+  event.preventDefault();
+  const response = await fetch("api/task-send/", {
+    method: "POST",
+    headers: {
+      Authorization: "Token " + localStorage.getItem("token"),
+    },
+    body: JSON.stringify(formData1),
+  });
+
+  if (response.ok) {
+  } else {
+    const responseData = await response.json();
+    Object.values(responseData).forEach((value) => {
+      setError(value[0]);
+    });
+  }
+};
 
   const handleFileChange1 = (event) => {
     const file = event.target.files[0];
+    setFormData1({ id:0, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -70,6 +93,7 @@ export default function Map() {
 
   const handleFileChange2 = (event) => {
     const file = event.target.files[0];
+    setFormData1({ id:0, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -83,6 +107,7 @@ export default function Map() {
 
   const handleFileChange3 = (event) => {
     const file = event.target.files[0];
+    setFormData1({ id:0, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -313,7 +338,7 @@ export default function Map() {
               )}
               <p>Task 1:{Task1Desc}</p>
               <img src={monster} onClick={handleClick1}/>
-              <form class="task-form" onSubmit="">
+              <form class="task-form" onSubmit={() => handleSubmit(formData1)}>
                 <label class="task-label" htmlFor="attach1">
                   <img class="task-button" src={imageSrc1}/>
                 </label>
@@ -345,7 +370,7 @@ export default function Map() {
               )}
               <p>Task 2: {Task2Desc}</p>
               <img src={monster} onClick={handleClick2}/>
-              <form class="task-form" onSubmit="">
+              <form class="task-form" onSubmit={() => handleSubmit(formData2)}>
                 <label class="task-label" htmlFor="attach2">
                   <img class="task-button" src={imageSrc2}/>
                 </label>
@@ -377,7 +402,7 @@ export default function Map() {
               )}
               <p>Task 3: {Task3Desc}</p>
               <img src={monster} onClick={handleClick3}/>
-              <form class="task-form" onSubmit="">
+              <form class="task-form" onSubmit={() => handleSubmit(formData3)}>
                 <label class="task-label" htmlFor="attach3">
                   <img class="task-button" src={imageSrc3}/>
                 </label>
