@@ -26,9 +26,12 @@ export default function Map() {
   const [monster4, setMonster4] = useState('');
   const [monster5, setMonster5] = useState('');
   const [monster6, setMonster6] = useState('');
-  const [formData1, setFormData1] = useState({task: "", image: null});
-  const [formData2, setFormData2] = useState({task: "", image: null});
-  const [formData3, setFormData3] = useState({task: "", image: null});
+  const [formData1, setFormData1] = useState({taidsk: "", image: null});
+  const [formData2, setFormData2] = useState({id: "", image: null});
+  const [formData3, setFormData3] = useState({id: "", image: null});
+  const [Task1Id, setTask1Id] = useState('');
+  const [Task2Id, setTask2Id] = useState('');
+  const [Task3Id, setTask3Id] = useState('');
 
 const handleSubmit = async (formData, event) => {
   event.preventDefault();
@@ -51,7 +54,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange1 = (event) => {
     const file = event.target.files[0];
-    setFormData1({ task:Task1Desc, image: file });
+    setFormData1({ id:Task1Id, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -65,7 +68,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange2 = (event) => {
     const file = event.target.files[0];
-    setFormData2({ task:Task2Desc, image: file });
+    setFormData2({ id:Task2Id, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -79,7 +82,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange3 = (event) => {
     const file = event.target.files[0];
-    setFormData3({ task:Task3Desc, image: file });
+    setFormData3({ id:Task3Id, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -181,6 +184,9 @@ const handleSubmit = async (formData, event) => {
                 setMonster4(respData.location.task_slot2.monster_slot2.picture);
                 setMonster5(respData.location.task_slot3.monster_slot1.picture);
                 setMonster6(respData.location.task_slot3.monster_slot2.picture);
+                setTask1Id(respData.location.task_slot1.id);
+                setTask2Id(respData.location.task_slot2.id);
+                setTask3Id(respData.location.task_slot3.id);
               } else {
                 console.error("Failed to fetch location data");
               }
