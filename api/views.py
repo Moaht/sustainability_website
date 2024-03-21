@@ -239,6 +239,7 @@ class LocationView(APIView):
         if (task_slot1 := loc.task_slot1) is not None:
             task_type = get_object_or_404(TaskType, name=task_slot1.type.name)
             location_list[0]['task_slot1'] = {
+                'task_id': task_slot1.id,
                 'name': task_slot1.name,
                 'type': task_type.name,
                 'task_description': task_slot1.task_description,
@@ -269,6 +270,7 @@ class LocationView(APIView):
         if (task_slot2 := loc.task_slot2) is not None:
             task_type = get_object_or_404(TaskType, name=task_slot2.type.name)
             location_list[0]['task_slot2'] = {
+                'task_id': task_slot2.id,
                 'name': task_slot2.name,
                 'type': task_type.name,
                 'task_description': task_slot2.task_description,
@@ -299,6 +301,7 @@ class LocationView(APIView):
         if (task_slot3 := loc.task_slot3) is not None:
             task_type = get_object_or_404(TaskType, name=task_slot3.type.name)
             location_list[0]['task_slot3'] = {
+                'task_id': task_slot3.id,
                 'name': task_slot3.name,
                 'type': task_type.name,
                 'task_description': task_slot3.task_description,
@@ -328,3 +331,4 @@ class LocationView(APIView):
 
 
         return Response({'location': location_list[0]}, status=status.HTTP_200_OK)
+    
