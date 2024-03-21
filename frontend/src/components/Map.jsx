@@ -26,9 +26,9 @@ export default function Map() {
   const [monster4, setMonster4] = useState('');
   const [monster5, setMonster5] = useState('');
   const [monster6, setMonster6] = useState('');
-  const [formData1, setFormData1] = useState({id: "", image: null});
-  const [formData2, setFormData2] = useState({id: "", image: null});
-  const [formData3, setFormData3] = useState({id: "", image: null});
+  const [formData1, setFormData1] = useState({task: "", image: null});
+  const [formData2, setFormData2] = useState({task: "", image: null});
+  const [formData3, setFormData3] = useState({task: "", image: null});
 
 const handleSubmit = async (formData, event) => {
   event.preventDefault();
@@ -51,7 +51,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange1 = (event) => {
     const file = event.target.files[0];
-    setFormData1({ id:0, image: file });
+    setFormData1({ task:Task1Desc, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -65,7 +65,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange2 = (event) => {
     const file = event.target.files[0];
-    setFormData2({ id:0, image: file });
+    setFormData2({ task:Task2Desc, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -79,7 +79,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange3 = (event) => {
     const file = event.target.files[0];
-    setFormData3({ id:0, image: file });
+    setFormData3({ task:Task3Desc, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
