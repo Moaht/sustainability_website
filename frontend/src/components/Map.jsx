@@ -29,35 +29,7 @@ export default function Map() {
   const [formData1, setFormData1] = useState({id: "", image: null});
   const [formData2, setFormData2] = useState({id: "", image: null});
   const [formData3, setFormData3] = useState({id: "", image: null});
-/*
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = async () => {
-        const img = reader.result;
-        console.log(img);
-        const response = await fetch("api/task-send/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Token " + localStorage.getItem('token'),
-          },
-        });
-        if (response.ok) {
-          const responseData = await response.json();
-        } else {
-          const responseData = await response.json();
-          Object.values(responseData).forEach((value) => {
-            setError(value[0]);
-          });
-        }
-      };
-      reader.readAsDataURL(file); 
-    }
-  };
-*/
+
 const handleSubmit = async (formData, event) => {
   event.preventDefault();
   const response = await fetch("api/task-send/", {
@@ -65,7 +37,7 @@ const handleSubmit = async (formData, event) => {
     headers: {
       Authorization: "Token " + localStorage.getItem("token"),
     },
-    body: JSON.stringify(formData1),
+    body: JSON.stringify(formData),
   });
 
   if (response.ok) {
@@ -93,7 +65,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange2 = (event) => {
     const file = event.target.files[0];
-    setFormData1({ id:0, image: file });
+    setFormData2({ id:0, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -107,7 +79,7 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange3 = (event) => {
     const file = event.target.files[0];
-    setFormData1({ id:0, image: file });
+    setFormData3({ id:0, image: file });
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -338,7 +310,10 @@ const handleSubmit = async (formData, event) => {
               )}
               <p>Task 1:{Task1Desc}</p>
               <img src={monster} onClick={handleClick1}/>
-              <form class="task-form" onSubmit={() => handleSubmit(formData1)}>
+              <form class="task-form" onSubmit={(event) => {
+                  event.preventDefault();
+                  handleSubmit(formData1, event);
+                }}>
                 <label class="task-label" htmlFor="attach1">
                   <img class="task-button" src={imageSrc1}/>
                 </label>
@@ -370,7 +345,10 @@ const handleSubmit = async (formData, event) => {
               )}
               <p>Task 2: {Task2Desc}</p>
               <img src={monster} onClick={handleClick2}/>
-              <form class="task-form" onSubmit={() => handleSubmit(formData2)}>
+              <form class="task-form" onSubmit={(event) => {
+                  event.preventDefault();
+                  handleSubmit(formData2, event);
+                }}>
                 <label class="task-label" htmlFor="attach2">
                   <img class="task-button" src={imageSrc2}/>
                 </label>
@@ -402,7 +380,10 @@ const handleSubmit = async (formData, event) => {
               )}
               <p>Task 3: {Task3Desc}</p>
               <img src={monster} onClick={handleClick3}/>
-              <form class="task-form" onSubmit={() => handleSubmit(formData3)}>
+              <form class="task-form" onSubmit={(event) => {
+                  event.preventDefault();
+                  handleSubmit(formData3, event);
+                }}>
                 <label class="task-label" htmlFor="attach3">
                   <img class="task-button" src={imageSrc3}/>
                 </label>
