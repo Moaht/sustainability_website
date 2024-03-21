@@ -62,7 +62,9 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig', # enables use of django ../api
     'rest_framework', # enable django rest framework
     'frontend', # enables the ../frontend django app
-    'rest_framework.authtoken', # enables the built-in DRF token authorisation 
+    'rest_framework.authtoken', # enables the built-in DRF token authorisation
+    'gamekeeper.apps.GamekeeperConfig', # enables use of django ../api
+
 ]
 
 MIDDLEWARE = [
