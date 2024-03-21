@@ -25,7 +25,7 @@ urlpatterns = [
     # Enables the 'log out' view, which deletes the auth token
     path('api/logout/', views.LogoutView.as_view(), name='logout'),
     path('api/location/<int:location_id>/', views.LocationView.as_view()),
-    # path('api/task-send/', views.LocationListView.as_view(), name='locations'),
+    path('api/task-send/', views.CreateTaskVerification.as_view(), name='task-send'),
 ]
 
 # If in debug mode, serve media files, otherwise change this to a proper media server

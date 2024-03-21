@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework.exceptions import ValidationError
-from .models import Monster
+from .models import Monster, TaskVerification
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -68,3 +68,8 @@ class MonsterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Monster
         fields = ('id', 'user_id', 'type_id', 'obtained')
+
+class TaskVerificationSerializer(serializers.Serializer):
+    class Meta:
+        model = TaskVerification
+        fields = ('task_id', 'photo')

@@ -29,19 +29,25 @@ export default function Map() {
   const [formData1, setFormData1] = useState({taidsk: "", image: null});
   const [formData2, setFormData2] = useState({id: "", image: null});
   const [formData3, setFormData3] = useState({id: "", image: null});
-  const [Task1Id, setTask1Id] = useState('');
-  const [Task2Id, setTask2Id] = useState('');
-  const [Task3Id, setTask3Id] = useState('');
+  const [Task1Id, setTask1Id] = useState(1);
+  const [Task2Id, setTask2Id] = useState(1);
+  const [Task3Id, setTask3Id] = useState(1);
 
-const handleSubmit = async (formData, event) => {
-  event.preventDefault();
-  const response = await fetch("api/task-send/", {
-    method: "POST",
-    headers: {
-      Authorization: "Token " + localStorage.getItem("token"),
-    },
-    body: JSON.stringify(formData),
-  });
+
+  const handleSubmit = async (formData, event) => {
+    event.preventDefault();
+  
+    const data = new FormData();
+    data.append('task_id', formData.task_id);
+    data.append('photo', formData.image);
+  
+    const response = await fetch("api/task-send/", {
+      method: "POST",
+      headers: {
+        Authorization: "Token " + localStorage.getItem("token"),
+      },
+      body: data,
+    });
 
   if (response.ok) {
   } else {
@@ -52,65 +58,20 @@ const handleSubmit = async (formData, event) => {
   }
 };
 
-  const handleFileChange1 = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setFormData1({ id:Task1Id, image: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImageSrc1(attach_valid);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setImageSrc1(attach);
-    }
-  };
+const handleFileChange1 = (event) => {
+  const file = event.target.files[0];
+  setFormData1({ task_id:Task1Id, image: file });
+};
 
-  const handleFileChange2 = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setFormData1({ id:Task2Id, image: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImageSrc2(attach_valid);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setImageSrc2(attach);
-    }
-  };
+const handleFileChange2 = (event) => {
+  const file = event.target.files[0];
+  setFormData2({ task_id:Task2Id, image: file });
+};
 
-  const handleFileChange3 = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setFormData1({ id:Task3Id, image: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImageSrc3(attach_valid);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setImageSrc3(attach);
-    }
-  };
+const handleFileChange3 = (event) => {
+  const file = event.target.files[0];
+  setFormData3({ task_id:Task3Id, image: file });
+};
 
   const handleClick1 = () => {
     setShowOverlay1(true);
@@ -202,9 +163,9 @@ const handleSubmit = async (formData, event) => {
                 setMonster4(respData.location.task_slot2.monster_slot2.picture);
                 setMonster5(respData.location.task_slot3.monster_slot1.picture);
                 setMonster6(respData.location.task_slot3.monster_slot2.picture);
-                setTask1Id(respData.location.task_slot1.id);
-                setTask2Id(respData.location.task_slot2.id);
-                setTask3Id(respData.location.task_slot3.id);
+                setTask1Id(respData.location.task_slot1.task_id);
+                setTask2Id(respData.location.task_slot2.task_id);
+                setTask3Id(respData.location.task_slot3.task_id);
               } else {
                 console.error("Failed to fetch location data");
               }

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import User, Monster, MonsterType, Task, TaskType, TaskVerification, Location, LocationType
-from .serializers import UserSerializer, MonsterSerializer
+from .serializers import UserSerializer, MonsterSerializer, TaskVerificationSerializer
 from rest_framework.viewsets import GenericViewSet, ViewSet, ModelViewSet
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -329,6 +329,41 @@ class LocationView(APIView):
                     'chance': task_slot3.monster_slot2_chance
                 }
 
-
         return Response({'location': location_list[0]}, status=status.HTTP_200_OK)
     
+
+
+class CreateTaskVerification(APIView):
+    """
+    Creates a task verification instance
+    """
+    permission_classes = IsAuthenticated,
+
+    @staticmethod
+    def post(request: Request) -> Response:
+
+        # Gets string from header
+        auth_header = request.META.get('HTTP_AUTHORIZATION').split()
+
+        # Checks if it contains a token
+        if len(auth_header) != 2 or auth_header[0].lower() != 'token':
+            raise ValidationError('No token')
+
+        # Checks if token exists in database
+        if not Token.objects.filter(key=auth_header[1]):
+            raise ValidationError('Invalid token')
+
+        # Gets user id from token
+        user = Token.objects.get(key=auth_header[1]).user_id
+
+        # Gets task id from request
+        task_id = request.data.get('task_id')
+
+        # Create a new task verifcation instance with the user id, task id and photo
+        task_verification = TaskVerification.objects.create(
+            user_id=user,
+            task_id=task_id,
+            photo=request.data.get('photo')
+        )
+
+        return Response({'success': True}, status=status.HTTP_201_CREATED)
