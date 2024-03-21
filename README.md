@@ -67,7 +67,10 @@ The links for the user, game keeper and admin are:
 http://127.0.0.1:8000/
 http://127.0.0.1:8000/staff
 http://127.0.0.1:8000/admin
-``` 
+```
+We have populated database with the file data.sql, feel free to use it
+
+
 >[!TIP]
 >You may wish to set up an webmaster admin (superuser) account. 
 >To do so, you will need to do:
