@@ -360,7 +360,7 @@ class CreateTaskVerification(APIView):
         task_id = request.data.get('task_id')
 
         # Create a new task verifcation instance with the user id, task id and photo
-        task_verification = TaskVerification.objects.create(
+        TaskVerification.objects.create(
             user_id=user,
             task_id=task_id,
             photo=request.data.get('photo')

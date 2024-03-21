@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,windows,linux,macos,python,django,node
 
 # User uploaded images
-frontend/src/images/uploaded/
+# frontend/src/images/uploaded/
 
 # Node
 frontend/package-lock.json
@@ -16,7 +16,7 @@ frontend/static/
 *.pyc
 __pycache__/
 local_settings.py
-db.sqlite3
+# db.sqlite3
 db.sqlite3-journal
 media
 

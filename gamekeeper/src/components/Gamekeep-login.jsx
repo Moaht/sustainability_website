@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import "./gk-styles.css";
 
-export default function GKLogIn() {
+export default function GKLogIn({setPage}) {
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("<YOUR_BACKEND_API_URL>/signup", {
+    const response = await fetch("api/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });
-    const data = await response.json();
-    console.log(data);
+    if (response.ok) {
+      const responseData = await response.json();
+      localStorage.setItem('token', responseData.token);
+      setPage('page');
+    } else {
+      const responseData = await response.json();
+      Object.values(responseData).forEach((value) => {
+        setError(value[0]);
+      } );
+
+    }
   };
 
   const handleChange = (event) => {
