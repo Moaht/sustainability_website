@@ -16,8 +16,35 @@ export default function Map() {
   const [imageSrc3, setImageSrc3] = useState(attach);
   const [Task1Desc, setTask1Desc] = useState('');
   const [Task2Desc, setTask2Desc] = useState('');
-  const [Task3Desc, setTask3Desc] = useState('');
+  const [Task3Desc, setTask3Desc] = useState('');#
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const img = reader.result;
+        const response = await fetch("api/task-send/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Token " + localStorage.getItem('token'),
+          },
+          body: JSON.stringify({ id: 0, image: img, }), 
+        });
+        if (response.ok) {
+          const responseData = await response.json();
+        } else {
+          const responseData = await response.json();
+          Object.values(responseData).forEach((value) => {
+            setError(value[0]);
+          });
+        }
+      };
+      reader.readAsDataURL(file); 
+    }
+  };
 
   const handleFileChange1 = (event) => {
     const file = event.target.files[0];
