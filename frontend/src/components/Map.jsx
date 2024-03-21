@@ -54,7 +54,13 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange1 = (event) => {
     const file = event.target.files[0];
-    setFormData1({ id:Task1Id, image: file });
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setFormData1({ id:Task1Id, image: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -68,7 +74,13 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange2 = (event) => {
     const file = event.target.files[0];
-    setFormData2({ id:Task2Id, image: file });
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setFormData1({ id:Task2Id, image: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -82,7 +94,13 @@ const handleSubmit = async (formData, event) => {
 
   const handleFileChange3 = (event) => {
     const file = event.target.files[0];
-    setFormData3({ id:Task3Id, image: file });
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setFormData1({ id:Task3Id, image: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
