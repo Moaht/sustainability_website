@@ -1,4 +1,5 @@
-# sustainability_website
+# Welti-GO
+[Logo](https://github.com/Moaht/sustainability_website/assets/117759431/eb393b62-5400-4e60-ad63-6056125b112e)
 
 Website for promoting and gameifying sustainability on University campus
 
