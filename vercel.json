@@ -2,7 +2,11 @@
 "version": 2,
 "builds": [
   {
-    "src": "sustainability_website/wsgi.py",
+    "src": "package.json",
+    "use": "@vercel/node"
+  },
+  {
+    "src": "sustainability_website/settings.py",
     "use": "@vercel/python",
     "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
   },
