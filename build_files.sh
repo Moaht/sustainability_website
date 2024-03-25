@@ -1,3 +1,2 @@
 pip install -r requirements.txt
-python manage.py collectstatic
-python manage.py migrate
+python3.10 manage.py collectstatic
