@@ -9,6 +9,7 @@ frontend/package-lock.json
 
 ### Webpack ###
 frontend/static/
+gamekeeper/static/
 
 ### Django ###
 *.log

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -101,12 +102,40 @@ WSGI_APPLICATION = 'sustainability_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+load_dotenv()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get("POSTGRES_DATABASE"),
+        'USER': os.environ.get("POSTGRES_USER"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
+        'HOST': os.environ.get("POSTGRES_HOST"),
+        # 'PORT': os.environ.get("DB_PORT"),
+        'URL': os.environ.get("POSTGRES_URL"),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'URL': "postgres://default:E6Pnk2SUrOGu@ep-summer-scene-a24098yf-pooler.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require",
+#         'PRISMA_URL': "postgres://default:E6Pnk2SUrOGu@ep-summer-scene-a24098yf-pooler.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15",
+#         'URL_NO_SSL': "postgres://default:E6Pnk2SUrOGu@ep-summer-scene-a24098yf-pooler.eu-central-1.aws.neon.tech:5432/verceldb",
+#         'URL_NON_POOLING': "postgres://default:E6Pnk2SUrOGu@ep-summer-scene-a24098yf.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require",
+#         'USER': "default",
+#         'HOST': "ep-summer-scene-a24098yf-pooler.eu-central-1.aws.neon.tech",
+#         'PASSWORD':"E6Pnk2SUrOGu",
+#         'NAME':"welti_go"
+#     }
+# }
 
 
 # Password validation
@@ -153,7 +182,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom User model for the API app 
 AUTH_USER_MODEL = "api.User"
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.18']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.18', '.vercel.app']
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'frontend/src/images')
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

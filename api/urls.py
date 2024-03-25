@@ -26,7 +26,7 @@ urlpatterns = [
     path('api/logout/', views.LogoutView.as_view(), name='logout'),
     path('api/location/<int:location_id>/', views.LocationView.as_view()),
     path('api/task-send/', views.CreateTaskVerification.as_view(), name='task-send'),
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # If in debug mode, serve media files, otherwise change this to a proper media server
 if settings.DEBUG:

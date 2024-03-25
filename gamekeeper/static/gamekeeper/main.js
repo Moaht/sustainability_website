@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ GKPage)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction GKPage() {\n  var deleteDivById = function deleteDivById(divId) {\n    var div = document.getElementById(divId);\n    if (div) {\n      div.parentNode.removeChild(div);\n    }\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"gk-page\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    id: \"gk-logout\"\n  }, \"Log out\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify-list\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify1\",\n    \"class\": \"verify-task\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"date\"\n  }, \"Date\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"desc\"\n  }, \"Verify description\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    \"class\": \"verify-image\",\n    src: \"/Monsters/Gunth.svg\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"confirm\"\n  }, \"Confirm\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"deny\",\n    onClick: function onClick() {\n      return deleteDivById('verify1');\n    }\n  }, \"Deny\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify2\",\n    \"class\": \"verify-task\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"date\"\n  }, \"Date\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"desc\"\n  }, \"Verify description\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    \"class\": \"verify-image\",\n    src: \"/Monsters/Vorp.svg\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"confirm\"\n  }, \"Confirm\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"deny\",\n    onClick: function onClick() {\n      return deleteDivById('verify2');\n    }\n  }, \"Deny\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify3\",\n    \"class\": \"verify-task\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"date\"\n  }, \"Date\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"desc\"\n  }, \"Verify description\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    \"class\": \"verify-image\",\n    src: \"/Monsters/Loom.svg\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"confirm\"\n  }, \"Confirm\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"deny\",\n    onClick: function onClick() {\n      return deleteDivById('verify3');\n    }\n  }, \"Deny\"))));\n}\n\n//# sourceURL=webpack://gamekeeper/./src/components/Gamekeep-page.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ GKPage)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _images_test1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/test1.jpg */ \"./src/images/test1.jpg\");\n/* harmony import */ var _images_test2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/test2.jpg */ \"./src/images/test2.jpg\");\n/* harmony import */ var _images_test3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/test3.jpg */ \"./src/images/test3.jpg\");\n\n\n\n\nfunction GKPage() {\n  var deleteDivById = function deleteDivById(divId) {\n    var div = document.getElementById(divId);\n    if (div) {\n      div.parentNode.removeChild(div);\n    }\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"gk-page\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    id: \"gk-logout\",\n    onClick: function onClick() {\n      return setPage('login');\n    }\n  }, \"Log out\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify-list\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify1\",\n    \"class\": \"verify-task\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"date\"\n  }, \"21/03/2024\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"desc\"\n  }, \"Look for a bin with items in it\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    \"class\": \"verify-image\",\n    src: _images_test1_jpg__WEBPACK_IMPORTED_MODULE_1__\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"confirm\",\n    onClick: function onClick() {\n      return deleteDivById('verify1');\n    }\n  }, \"Confirm\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"deny\",\n    onClick: function onClick() {\n      return deleteDivById('verify1');\n    }\n  }, \"Deny\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify2\",\n    \"class\": \"verify-task\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"date\"\n  }, \"21/03/2024\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"desc\"\n  }, \"See empty plate in picture\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    \"class\": \"verify-image\",\n    src: _images_test2_jpg__WEBPACK_IMPORTED_MODULE_2__\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"confirm\",\n    onClick: function onClick() {\n      return deleteDivById('verify2');\n    }\n  }, \"Confirm\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"deny\",\n    onClick: function onClick() {\n      return deleteDivById('verify2');\n    }\n  }, \"Deny\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"verify3\",\n    \"class\": \"verify-task\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"date\"\n  }, \"22/03/2024\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    \"class\": \"desc\"\n  }, \"Look for bike in picture\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    \"class\": \"verify-image\",\n    src: _images_test3_jpg__WEBPACK_IMPORTED_MODULE_3__\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"confirm\",\n    onClick: function onClick() {\n      return deleteDivById('verify3');\n    }\n  }, \"Confirm\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    \"class\": \"deny\",\n    onClick: function onClick() {\n      return deleteDivById('verify3');\n    }\n  }, \"Deny\"))));\n}\n\n//# sourceURL=webpack://gamekeeper/./src/components/Gamekeep-page.jsx?");
 
 /***/ }),
 
@@ -218,6 +218,36 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://gamekeeper/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
 
+/***/ }),
+
+/***/ "./src/images/test1.jpg":
+/*!******************************!*\
+  !*** ./src/images/test1.jpg ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"cb8f3d70428c8b5abadf.jpg\";\n\n//# sourceURL=webpack://gamekeeper/./src/images/test1.jpg?");
+
+/***/ }),
+
+/***/ "./src/images/test2.jpg":
+/*!******************************!*\
+  !*** ./src/images/test2.jpg ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"78067849ae29ec121515.jpg\";\n\n//# sourceURL=webpack://gamekeeper/./src/images/test2.jpg?");
+
+/***/ }),
+
+/***/ "./src/images/test3.jpg":
+/*!******************************!*\
+  !*** ./src/images/test3.jpg ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"b57d3256ed9a21371a3a.jpg\";\n\n//# sourceURL=webpack://gamekeeper/./src/images/test3.jpg?");
+
 /***/ })
 
 /******/ 	});
@@ -274,6 +304,18 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -297,6 +339,29 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
